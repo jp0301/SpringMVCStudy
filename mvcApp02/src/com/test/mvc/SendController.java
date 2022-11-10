@@ -1,6 +1,25 @@
 package com.test.mvc;
 
-public class SendController
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+public class SendController implements Controller
 {
+
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
+		ModelAndView mav = new ModelAndView();
+		
+		String message = "뭘봐";
+		
+		mav.addObject("message", message);
+		mav.setViewName("/WEB-INF/view/Send.jsp");
+		
+		return mav;
+	}
 	
 }

@@ -17,5 +17,9 @@
 	<!--    ③ 본문 내용의 425 페이지(찾아서 직접 이동, 파일 페이지가 아니라 실제 기록된 페이지 파일페이지는 450/805) -->
 	<!--    ④ 페이지 하단의 XML 파일 샘플코드 복사 & 붙여넣기-->
 	
+	<bean name="/send.action" class="com.test.mvc.SendController"></bean>
+	<bean name="/receive.action" class="com.test.mvc.ReceiveController"></bean>
+	
+	
 
 </beans>

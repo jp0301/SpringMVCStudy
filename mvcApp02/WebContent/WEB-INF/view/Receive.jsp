@@ -13,5 +13,14 @@
 </head>
 <body>
 
+<div>
+	<h1>Spring MVC 데이터 송수신 실습</h1>
+	<hr>
+</div>
+
+<div>
+	<h2>안녕하세요, ${userName}님 반갑습니다.</h2>
+</div>
+
 </body>
 </html>

@@ -13,5 +13,18 @@
 </head>
 <body>
 
+<div>
+	<h1>Spring MVC 데이터 송수신 실습</h1>
+	<hr>
+</div>
+
+<div>
+	<form action="receive.action" method="post">
+		이름 <input type="text" name="userName">
+		<button type="submit">submit</button>
+	</form>
+</div>
+
+
 </body>
 </html>
