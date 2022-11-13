@@ -19,12 +19,17 @@
 </div>
 
 <div>
+	<!-- <form action="Receive.jsp" method="post"> -->
 	<form action="receive.action" method="post">
-		이름 <input type="text" name="userName">
-		<button type="submit">submit</button>
+		이름 <input type="text" name="userName" class="txt">
+		<button type="submit" class="btn">submit</button>
 	</form>
 </div>
 
+<p>
+나중에 작업할때는 jsp 파일을 WebContent에 넣어놓고 확인할거 다한다음에 view에 넣고
+돌려도 된다.
+</p>
 
 </body>
 </html>

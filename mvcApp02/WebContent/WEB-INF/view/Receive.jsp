@@ -3,6 +3,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
+	
+	// 예전방식으로 한다면ㄴ
+	//이전 페이지 (ReceiveController.java)로부터 데이터 수신
+	//--userName(Send.jsp가 넘긴 데이터가 아니라 Controller 가 가공한 데이터)
 %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +23,7 @@
 </div>
 
 <div>
-	<h2>안녕하세요, ${userName}님 반갑습니다.</h2>
+	<h2>안녕하세요~! ${userName}</h2>
 </div>
 
 </body>

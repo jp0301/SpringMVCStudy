@@ -1,3 +1,10 @@
+/* 
+ ======================================
+ SendController.java
+ - 사용자 정의 컨트롤러 클래스
+ ======================================
+ */
+
 package com.test.mvc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +21,6 @@ public class SendController implements Controller
 	{
 		ModelAndView mav = new ModelAndView();
 		
-		String message = "뭘봐";
-		
-		mav.addObject("message", message);
 		mav.setViewName("/WEB-INF/view/Send.jsp");
 		
 		return mav;
