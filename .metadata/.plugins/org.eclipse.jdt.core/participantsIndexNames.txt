@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-C:\SpringMVCStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3389938418.index
-\mvcApp02\src
-C:\SpringMVCStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4293127329.index
-\mvcApp01\src
