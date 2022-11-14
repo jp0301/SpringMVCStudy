@@ -265,3 +265,108 @@
 ○ 사용자 최초 요청 주소
    http://localhost:8090/mvcApp02/memberlist.action
 
+
+
+-----------------------------------------------------------------------------------
+
+■■■ Spring MVC 프로젝트 실습(mvcApp04) ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   → STS 사용 시 Spring Project(또는 스프링 레거시 프로젝트)
+   : mvcApp04
+
+○ web.xml 파일 생성 / 라이브러리 등록
+   : 윈도우 탐색기 상에서
+     샘플 프로젝트(mvcApp00)의 src 와 WebContent 디렉터리
+     복사해서 현재 프로젝트에 덮어쓰기
+
+○ 실습 성격
+   : 직원 관리 프로그램(Spring MVC 버전)
+     JDBC 모듈 추가 실습
+     SimpleDriverDataSource 클래스(객체)활용
+
+○ 기능 구현
+   - 
+   - 
+   - 
+   - 
+   - 
+     →
+   ==>  Spring MVC, JSP/Servlet, Oracle, HTML/CSS/Javascript, AJAX
+        , jQuery, EL, JSTL 표현 등 사용.
+
+
+○ 사전 작업 → 테이블 및 시퀀스, 주요 쿼리문 구성
+   - EMPLOYEE 직원
+   - REGION 지역
+   - DEPARTMENT 부서
+   - POSITION 직위
+   - 샘플 데이터 입력
+
+
+○ 물리적 파일 구성
+   - TBL_MEMBERLIST 테이블 생성 및 활용
+   - MEMBERLISTSEQ 시퀀스 생성 및 활용
+   - 샘플 데이터 입력 및 활용
+
+
+○ 물리적 파일 구성
+   - 1.
+   - 2.
+   - 3.
+   - 4.
+   - 5.
+   - 6.
+   - 7.
+   - 8.
+   - 9.
+   - 10.
+   - 11.
+   - 12.
+   - 13.
+   - 14.
+   - 15.
+   - 16.
+   - 17.
+   - 18.
+   - 19.
+   - 20.
+   - 21
+   - 22
+   - 23
+   - 24
+   - 25
+   - 26
+   - 27
+   - 28
+   - 29
+   - 30
+   - 31
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+
+
+
+
+
+○ 사용자 최초 요청 주소
+   http://localhost:8090/mvc04/employeelist.action
+   http://localhost:8090/mvc04/emplist.action
+
+
+
