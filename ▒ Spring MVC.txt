@@ -182,3 +182,86 @@
 
 ○ 사용자 최초 요청 주소
    http://localhost:8090/mvcApp02/send.action
+
+
+
+-----------------------------------------------------------------------------------
+
+■■■ Spring MVC 프로젝트 실습(mvcApp03) ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   → STS 사용 시 Spring Project(또는 스프링 레거시 프로젝트)
+   : mvcApp03
+
+○ web.xml 파일 생성 / 라이브러리 등록
+   : 윈도우 탐색기 상에서
+     샘플 프로젝트(mvcApp00)의 src 와 WebContent 디렉터리
+     복사해서 현재 프로젝트에 덮어쓰기
+
+○ 실습 성격
+   : 데이터 송수신 실습(Spring MVC 버전)
+     JDBC 모듈 추가 실습
+     SimpleDriverDataSource 활용
+
+○ 기능 구현
+   : 사용자로부터 이름, 전화번호 데이터를 입력받아
+     입력받은 내용을 데이터베이스에 저장
+     이름, 전화번호 항목을 데이터베이스로부터 읽어
+     화면에 출력하여 전달.
+
+○ 물리적 파일 구성
+   - TBL_MEMBERLIST 테이블 생성 및 활용
+   - MEMBERLISTSEQ 시퀀스 생성 및 활용
+   - 샘플 데이터 입력 및 활용
+
+○ 화면 구성
+   이름 [       ] → <input type="text">
+   전화 [       ] → <input type="text">
+   <회원 추가>    → <button type="button">
+
+   전체 인원 수 : 2명          → <p>...</p>
+   --------------------------- → <table> 혹은 <div>
+   번호 이름    전화번호
+   1    정영준  010-1111-1111
+   2    조현하  010-2222-2222
+   ---------------------------
+
+○ 물리적 파일 구성
+   - mvcApp03_scott.sql        → 데이터베이스 관련 객체 준비.
+
+   - MemberDTO.java            → 사용자 정의 자료형 객체 활용.
+
+   - IMemberDAO.java           → 인터페이스
+
+   - MemberDAO.java            → 데이터베이스 액션 처리 전용 객체.
+                                  ※ Connection 객체에 대한 의존성 주입 존비.
+                                     → setter 메소드 활용.
+
+   - MemberListController.java → 사용자 정의 컨트롤러 객체 활용.
+                                  리스트 출력 액션 처리.
+                                  ※ DAO 객체에 대한 의존성 주입 준비
+                                     → setter 활용.
+
+   - MemberList.jsp            → 회원 명단 출력용 뷰(View)
+                                  회원 데이터 추가 폼에 대한
+                                  레이아웃(화면) 구성
+
+   - MemberInsertController.java → 사용자 정의 컨트롤러 객체 활용.
+                                    회원 데이터 추가 액션 처리.
+                                    ※ DAO 객체에 대한 의존성 주입 준비
+                                       → setter 활용.
+
+   - dispatcher-servlet.xml		→ 사용자 정의 컨트롤러 객체 등록.
+					   사용자 요청 URL 매핑 주소 등록.
+                                           SimpleDriverDataSource 객체 등록.
+                                           의존 객체 주입 설정.
+                                           DAO 객체 등록.
+
+   - web.xml				→ Spring MVC Framework
+                                           Front Controller
+○ 사용자 최초 요청 주소
+   http://localhost:8090/mvcApp02/memberlist.action
+
