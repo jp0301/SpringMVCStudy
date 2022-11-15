@@ -289,83 +289,90 @@
      SimpleDriverDataSource 클래스(객체)활용
 
 ○ 기능 구현
-   - 
-   - 
-   - 
-   - 
-   - 
-     →
-   ==>  Spring MVC, JSP/Servlet, Oracle, HTML/CSS/Javascript, AJAX
-        , jQuery, EL, JSTL 표현 등 사용.
+   - 직원 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 지역 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 부서 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 직위 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 로그인 및 로그아웃 기능 구현
+     → 관리자 및 일반직원 로그인 구분하여 처리
+        ==> Spring MVC, JSP/Servlet, Oracle, HTML/CSS/Javascript
+            , AJAX, jQuery, EL, JSTL 표현 등 사용.
 
-
-○ 사전 작업 → 테이블 및 시퀀스, 주요 쿼리문 구성
-   - EMPLOYEE 직원
-   - REGION 지역
-   - DEPARTMENT 부서
-   - POSITION 직위
-   - 샘플 데이터 입력
+○ 사전 작업
+   - 주요 테이블 생성 및 준비
+   ·EMPLOYEE 		직원
+   ·REGION 		지역
+   ·DEPARTMENT 	부서
+   ·POSITION 		직위
+   - 주요 시퀀스 생성 및 활용
+   ·EMPLOYEESEQ
+   ·REGIONSEQ 	
+   ·DEPARTMENTSEQ 
+   ·POSITIONSEQ 
+   - 샘플 데이터 입력 및 활용	
 
 
 ○ 물리적 파일 구성
-   - TBL_MEMBERLIST 테이블 생성 및 활용
-   - MEMBERLISTSEQ 시퀀스 생성 및 활용
-   - 샘플 데이터 입력 및 활용
+   - #00. mvcApp04_scott.sql 			→ 데이터베이스 관련 객체 준비
 
+   - #01. Employee.java				→ DTO 개념. 직원 정보 자료형 클래스 활용
+   - #02. Department.java 			→ DTO 개념. 부서 정보 자료형 클래스 활용
+   - #03. Region.java				→ DTO 개념. 지역 정보 자료형 클래스 활용
+   - #04. Position.java				→ DTO 개념. 직위 정보 자료형 클래스 활용
 
-○ 물리적 파일 구성
-   - 1.
-   - 2.
-   - 3.
-   - 4.
-   - 5.
-   - 6.
-   - 7.
-   - 8.
-   - 9.
-   - 10.
-   - 11.
-   - 12.
-   - 13.
-   - 14.
-   - 15.
-   - 16.
-   - 17.
-   - 18.
-   - 19.
-   - 20.
-   - 21
-   - 22
-   - 23
-   - 24
-   - 25
-   - 26
-   - 27
-   - 28
-   - 29
-   - 30
-   - 31
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
+   - #05. IEmployeeDAO.java			→ 인터페이스.
+   - #06. IDepartmentDAO.java			→ 인터페이스.
+   - #07. IRegionDAO.java			→ 인터페이스.
+   - #08. IPositionDAO.java			→ 인터페이스.
 
+   - #09. EmployeeDAO.java			→ 데이터베이스 액션 처리 클래스.
+					           직원 데이터 입력, 출력, 수정, 삭제.
+						   Connection 객체애 대한 의존성 주입을 위한 준비
+						   (인터페이스 자료형 / setter 구성)		
+   - #10. DepartmentDAO.java			→ 데이터베이스 액션 처리 클래스.
+					           부서 데이터 입력, 출력, 수정, 삭제.
+						   Connection 객체애 대한 의존성 주입을 위한 준비
+						   (인터페이스 자료형 / setter 구성)			
+   - #11. RegionDAO.java			→ 데이터베이스 액션 처리 클래스.
+					           지역 데이터 입력, 출력, 수정, 삭제.
+						   Connection 객체애 대한 의존성 주입을 위한 준비
+						   (인터페이스 자료형 / setter 구성)			
+   - #12. PositionDAO.java			→ 데이터베이스 액션 처리 클래스.
+					           직위 데이터 입력, 출력, 수정, 삭제.
+						   Connection 객체애 대한 의존성 주입을 위한 준비
+						   (인터페이스 자료형 / setter 구성)	
 
-
-
+------------------------------------------------------------------------------------------------------
+		
+   - #13.
+   - #14.
+   - #15.
+   - #16.
+   - #17.
+   - #18.
+   - #19.
+   - #20.
+   - #21.
+   - #22.
+   - #23.
+   - #24.
+   - #25.
+   - #26.
+   - #27.
+   - #28.
+   - #29.
+   - #30.
+   - #31.
+   - #32.
 
 ○ 사용자 최초 요청 주소
    http://localhost:8090/mvc04/employeelist.action
+
+
+
+
+
+
    http://localhost:8090/mvc04/emplist.action
 
 
