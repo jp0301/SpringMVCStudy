@@ -724,4 +724,4 @@ SELECT NAME FROM EMPLOYEE WHERE EMPLOYEEID = 1 AND SSN2 = CRYPTPACK.ENCRYPT('223
 desc EMPLOYEEVIEW;
 desc departmentview;
 desc regionview;
-desc positionView;
+desc position;

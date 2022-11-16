@@ -30,7 +30,7 @@ public interface IEmployeeDAO
 	
 	public int employeeAdd(Employee employee) throws SQLException;
 	
-	public int remove(String EmployeeId) throws SQLException;
+	public int remove(String employeeId) throws SQLException;
 	
 	public int modify(Employee employee) throws SQLException;
 	
