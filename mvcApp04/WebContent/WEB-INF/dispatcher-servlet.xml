@@ -25,24 +25,23 @@
 	<bean id="employeeDAO" class="com.test.mvc.EmployeeDAO">
 		<property name="dataSource" ref="myDataSource"></property>
 	</bean>
-<!-- 
- 	<bean id="positionDAO" class="com.test.mvc.EmployeeDAO">
-		<property name="dataSource" ref="myDataSource"></property>
-	</bean>
-
-	<bean id="regionDAO" class="com.test.mvc.RegionDAO">
-		<property name="dataSource" ref="myDataSource"></property>
-	</bean>
-
-	<bean id="departmentDAO" class="com.test.mvc.DepartmentDAO">
-		<property name="dataSource" ref="myDataSource"></property>
-	</bean>
- -->
-
 
 	<!-- 직원 리스트 Controller 등록 -->
 	<bean name="/employeelist.action" class="com.test.mvc.EmployeeListController">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
+	
+	<!-- 직원 데이터 입력 폼 Controller 등록 -->
+	<bean name="/employeeinsertform.action" class="com.test.mvc.EmployeeInsertFormController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	
+	<!-- AJAX 관련 Controller 등록 -->
+	<bean name="/ajax.action" class="com.test.mvc.AjaxController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	
 
 </beans>

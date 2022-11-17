@@ -48,8 +48,12 @@
 			
 			<div>
 				<form action="" >
-					<input type="button" value="직원 추가" class="btn">
+					<input type="button" value="직원 추가" class="btn btn-primary"
+					onclick="location.href='employeeinsertform.action'">
 				</form>
+				
+
+				
 			</div>
 			<br><br>
 			
@@ -117,10 +121,11 @@
 						</c:choose>
 					</td>
 					--%>
+					
 					<td>${employee.grade == 0 ? "관리자" : "일반사원" }</td>
 					
-					<td><button type="button" class="btn updateBtn">수정</button></td>
-					<td><button type="button" class="btn deleteBtn">삭제</button></td>
+					<td><button type="button" class="btn btn-primary">수정</button></td>
+					<td><button type="button" class="btn btn-primary">삭제</button></td>
 				</tr>
 				</c:forEach>
 				
@@ -143,33 +148,9 @@
 					<td><button type="button" class="btn">수정</button></td>
 					<td><button type="button" class="btn">삭제</button></td>
 				</tr>
-				
-				<tr>
-					<td>4</td>
-					<td>정영준</td>
-					<td>991111</td>
-					<td>1999-11-11</td>
-					<td>양력</td>
-					<td>010-2345-2345</td>
-					<td>경기</td>
-					<td>인사부</td>
-					<td>대리</td>
-					<td>2500000</td>
-					<td>500000</td>
-					<td>3000000</td>
-					<td>일반사원</td>
-					
-					<td><button type="button" class="btn">수정</button></td>
-					<td><button type="button" class="btn">삭제</button></td>
-				</tr>
 				-->
 			</table>			
-			
-			
-			
-			
-			
-			
+
 			
 		</div>
 		

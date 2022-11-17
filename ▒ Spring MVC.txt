@@ -350,41 +350,38 @@
    - #14-1. menuStyle.css			→ 메뉴 스타일 구성.
    - #14-2. mainStyle.css			→ 메인 스타일 구성.
 
-   - #15. EmployeeListController.java		→ 
+   - #15. EmployeeListController.java		 
+
+   - #16. web.xml				 
+
+   - #17. dispatcher-servlet.xml		 
+
+   - #18. applicationContext.xml		 
+
+
+   - #19. EmployeeInsertFormController.java
+   - #20. EmployeeInsertForm.jsp	
+   - #21. AjaxController.java
+   - #22. Ajax.jsp	
+
+   - #23. EmployeeInsertController.java
+	
+   - #24. EmployeeUpdateFormController.java
+   - #25. EmployeeUpdateForm.jsp
+
+   - #26. EmployeeUpdateController.java
+
+   - #27. EmployeeDeleteController.java
+   
 
 
 
-------------------------------------------------------------------------------------------------------
-		
-   - #13.
-   - #14.
-   - #15.
-   - #16.
-   - #17.
-   - #18.
-   - #19.
-   - #20.
-   - #21.
-   - #22.
-   - #23.
-   - #24.
-   - #25.
-   - #26.
-   - #27.
-   - #28.
-   - #29.
-   - #30.
-   - #31.
-   - #32.
+
+
+
 
 ○ 사용자 최초 요청 주소
    http://localhost:8090/mvc04/employeelist.action
-
-
-
-
-
-
    http://localhost:8090/mvc04/emplist.action
 
 
