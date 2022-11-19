@@ -43,7 +43,8 @@ public class EmployeeListController implements Controller
 			employeeList = dao.list();
 			
 			mav.addObject("employeeList", employeeList);
-			mav.setViewName("/WEB-INF/view/EmployeeList.jsp");
+			//mav.setViewName("/WEB-INF/view/EmployeeList.jsp");
+			mav.setViewName("EmployeeList");
 			
 		} catch (Exception e)
 		{

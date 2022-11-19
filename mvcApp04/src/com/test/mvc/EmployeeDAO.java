@@ -215,13 +215,12 @@ public class EmployeeDAO implements IEmployeeDAO
 		int result = 0;
 		
 		String sql="INSERT INTO EMPLOYEE("
-				 + " EMPLOYEEID, NAME, SSN1"
-				 + ", SSN2"
+				 + " EMPLOYEEID, NAME, SSN1, SSN2"
 				 + ", BIRTHDAY"
 				 + ", LUNAR, TELEPHONE, DEPARTMENTID, POSITIONID , REGIONID, BASICPAY, EXTRAPAY)"
-				 + " VALULES("
+				 + " VALUES("
 				 + " EMPLOYEESEQ.NEXTVAL, ?, ?"
-				 + ", CRYPTPACK.ENCRYPT(?,?)"
+				 + ", CRYPTPACK.ENCRYPT(?, ?)"
 				 + ", TO_DATE(?, 'YYYY-MM-DD')"
 				 + ", ?, ?, ?, ?, ?, ?, ?)";
 		
@@ -242,7 +241,7 @@ public class EmployeeDAO implements IEmployeeDAO
 		pstmt.setInt(9, Integer.parseInt(employee.getPositionId()));
 		pstmt.setInt(10, Integer.parseInt(employee.getRegionId()));
 		pstmt.setInt(11, employee.getBasicPay());
-		pstmt.setInt(11, employee.getExtraPay());
+		pstmt.setInt(12, employee.getExtraPay());
 		
 		result = pstmt.executeUpdate();
 		

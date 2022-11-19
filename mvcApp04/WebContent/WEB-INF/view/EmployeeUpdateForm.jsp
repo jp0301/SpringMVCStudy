@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EmployeeInsertForm.jsp</title>
+<title>EmployeeUpdateForm.jsp</title>
 
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/jquery-ui.css">
@@ -142,37 +142,42 @@
 			<h1>[직원 관리] > [직원 리스트]</h1>
 			<hr>
 			
-			<form action="employeeinsert.action" method="post" id="employeeForm">
+			<form action="employeeupdate.action" method="post" id="employeeForm">
 				<table>
 					<tr>
 						<th>이름</th>
 						<td>
-							<input type="text" id="name" name="name" placeholder="이름" />
+							<input type="text" id="name" name="name" placeholder="이름" 
+							value="${employee.employeeName }"/>
 						</td>
 					</tr>
 					<tr>
 						<th>주민번호</th>
 						<td>
 							<input type="text" id="ssn1" name="ssn1"
-								style="width: 100px;"> - 
+								style="width: 100px;"
+								value="${employee.ssn1 }"> - 
 							<input type="text" id="ssn2" name="ssn2"
-								style="width: 110px;">
+								style="width: 110px;"
+								value="${employee.ssn2 }">
 						</td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
 						<td>
 							<input type="text" id="birthday" name="birthday"
-							 placeholder="생년월일" />
+							 placeholder="생년월일" 
+							 value="${employee.birthday }"/>
 						</td>
 					</tr>
 					<tr>
 						<th>양/음력</th>
 						<td>
 							<input type="radio" value="0" name="lunar" id="lunar0"
-							checked="checked" />
+							${employee.lunar ==0 ? "checked=\"checked\"" : "" } >
 							<label for="lunar0">양력</label>
-							<input type="radio" value="1" name="lunar" id="lunar1" />
+							<input type="radio" value="1" name="lunar" id="lunar1" 
+							${employee.lunar == 1 ? "checked=\"checked\"" : "" } >
 							<label for="lunar1">음력</label>
 						</td>
 					</tr>
@@ -180,7 +185,8 @@
 					<tr>
 						<th>전화번호</th>
 						<td>
-							<input type="tel" id="telephone" name="telephone" placeholder="ex) 010-1234-1234">
+							<input type="tel" id="telephone" name="telephone" placeholder="ex) 010-1234-1234"
+							value="${employee.telephone }">
 						</td>
 					</tr>
 					
@@ -229,7 +235,8 @@
 					<tr>
 						<th>기본급</th>
 						<td>
-							<input type="text" id="basicPay" name="basicPay">
+							<input type="text" id="basicPay" name="basicPay"
+							value="${employee.basicPay }">
 							(최소 기본급 
 							
 							<span id="minBasicPay" style="color: red; font-weight: bold;">
@@ -241,7 +248,8 @@
 					<tr>
 						<th>수당</th>
 						<td>
-							<input type="text" id="extraPay" name="extraPay">
+							<input type="text" id="extraPay" name="extraPay"
+							value="${employee.extraPay }">
 						</td>
 					</tr>
 					<tr>
@@ -249,10 +257,10 @@
 							<br><br>
 							
 							<button type="button" class="btn btn-primary" id="submitBtn"
-							style="width: 40%;">직원 추가</button>
+							style="width: 40%;">직원 수정</button>
 							<button type="button" class="btn btn-primary" id="listBtn"
 							style="width: 40%;"
-							onclick="location.href='employeeinsertform.action'">직원 리스트</button>
+							onclick="location.href='employeeupdateform.action'">직원 리스트</button>
 							<br><br>
 							
 							<span id="err" style="color: red; font-weight: bold; display: none;">

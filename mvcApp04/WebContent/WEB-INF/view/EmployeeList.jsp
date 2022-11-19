@@ -14,12 +14,23 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
+
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/mainStyle.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+	
+	$(function() 
+	{
+		$("#updateBtn").click(function()
+		{
+			$(location).attr("href", "employeeupdateform.action?employeeId=" + $(this).val());
+		});
+	});
+	
+	
 	
 </script>
 
@@ -124,7 +135,14 @@
 					
 					<td>${employee.grade == 0 ? "관리자" : "일반사원" }</td>
 					
-					<td><button type="button" class="btn btn-primary">수정</button></td>
+					<td>
+					<%-- value="${employee.employeeId} --%>
+					<button type="button" class="btn updateBtn" id="updateBtn"
+					 onclick="location.href='employeeupdate.action?employeeId=' + ${employee.employeeId}">
+						수정
+					</button>
+					</td>
+					
 					<td><button type="button" class="btn btn-primary">삭제</button></td>
 				</tr>
 				</c:forEach>
