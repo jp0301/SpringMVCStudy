@@ -22,6 +22,7 @@ public class EmployeeUpdateController implements Controller
 	{
 		ModelAndView mav = new ModelAndView();
 		
+		String employeeId = request.getParameter("employeeId");
 		String name = request.getParameter("name");
 		String ssn1 = request.getParameter("ssn1");
 		String ssn2 = request.getParameter("ssn2");
@@ -38,6 +39,7 @@ public class EmployeeUpdateController implements Controller
 		{
 			Employee employee = new Employee();
 			
+			employee.setEmployeeId(employeeId);
 			employee.setName(name);
 			employee.setSsn1(ssn1);
 			employee.setSsn2(ssn2);

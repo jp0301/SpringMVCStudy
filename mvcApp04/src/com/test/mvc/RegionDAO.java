@@ -21,7 +21,7 @@ public class RegionDAO implements IRegionDAO
 {
 	private DataSource dataSource;
 	
-	public void getConnection(DataSource dataSource)
+	public void setDataSource(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
 	}

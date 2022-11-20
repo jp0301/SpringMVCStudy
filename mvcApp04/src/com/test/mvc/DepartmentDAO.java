@@ -22,7 +22,7 @@ public class DepartmentDAO implements IDepartmentDAO
 	
 	private DataSource dataSource;
 	
-	public void getConnection(DataSource dataSource)
+	public void setDataSource(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
 	}

@@ -24,9 +24,10 @@
 	
 	$(function() 
 	{
-		$("#updateBtn").click(function()
+		$(".updateBtn").click(function()
 		{
 			$(location).attr("href", "employeeupdateform.action?employeeId=" + $(this).val());
+			
 		});
 	});
 	
@@ -137,8 +138,7 @@
 					
 					<td>
 					<%-- value="${employee.employeeId} --%>
-					<button type="button" class="btn updateBtn" id="updateBtn"
-					 onclick="location.href='employeeupdate.action?employeeId=' + ${employee.employeeId}">
+					<button type="button" class="btn updateBtn" value="${employee.employeeId}">
 						수정
 					</button>
 					</td>

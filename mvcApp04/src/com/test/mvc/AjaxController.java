@@ -42,7 +42,8 @@ public class AjaxController implements Controller
 			result = dao.getMinBasicPay(positionId);
 			
 			mav.addObject("result", result);
-			mav.setViewName("WEB-INF/view/Ajax.jsp");
+			/* mav.setViewName("WEB-INF/view/Ajax.jsp"); */
+			mav.setViewName("Ajax");
 			
 		} catch (Exception e)
 		{

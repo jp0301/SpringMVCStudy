@@ -81,9 +81,9 @@
 		
 		// 직원 리스트 버튼이 클릭되었을 경우 수행할 코드 처리
 		//onclick="location.href='employeeinsertform.action'"
-		$("$listBtn").click(function()
+		$("#listBtn").click(function()
 		{
-			
+			location.href = "employeelist.action";
 		});
 		
 		
@@ -139,16 +139,26 @@
 		<!-- 콘텐츠 영역 -->
 		<div id="content">
 			
-			<h1>[직원 관리] > [직원 리스트]</h1>
+			<h1>[직원 수정]</h1>
 			<hr>
 			
 			<form action="employeeupdate.action" method="post" id="employeeForm">
 				<table>
 					<tr>
+						<th>사원번호</th>
+						<td>
+							<input type="text" id="employeeId" name="employeeId" readonly="readonly"
+							value="${employee.employeeId }"/>
+						</td>
+					</tr>
+				
+				
+				
+					<tr>
 						<th>이름</th>
 						<td>
 							<input type="text" id="name" name="name" placeholder="이름" 
-							value="${employee.employeeName }"/>
+							value="${employee.name }"/>
 						</td>
 					</tr>
 					<tr>
@@ -157,9 +167,8 @@
 							<input type="text" id="ssn1" name="ssn1"
 								style="width: 100px;"
 								value="${employee.ssn1 }"> - 
-							<input type="text" id="ssn2" name="ssn2"
-								style="width: 110px;"
-								value="${employee.ssn2 }">
+							<input type="password" id="ssn2" name="ssn2"
+								style="width: 110px;">
 						</td>
 					</tr>
 					<tr>
@@ -201,7 +210,10 @@
 								<option value="3">은평</option>
 								-->
 								<c:forEach var="region" items="${regionList}">
-									<option value="${region.regionId}">${region.regionName}</option>
+									<option value="${region.regionId}"
+										${employee.regionId == region.regionId ? "selected=\"selected\"" : ""}>
+										${region.regionName}
+									</option>
 								</c:forEach>
 								
 							</select>
@@ -213,7 +225,10 @@
 						<td>
 							<select id="departmentId" name="departmentId">
 								<c:forEach var="department" items="${departmentList}">
-									<option value="${department.departmentId}">${department.departmentName}</option>
+									<option value="${department.departmentId}"
+									${employee.departmentId == department.departmentId ? "selected=\"selected\"" : ""}>
+										${department.departmentName}
+									</option>
 								</c:forEach>
 							</select>
 						</td>
@@ -226,7 +241,10 @@
 						<td>
 							<select id="positionId" name="positionId">
 								<c:forEach var="position" items="${positionList}">
-									<option value="${position.positionId}">${position.positionName}</option>
+									<option value="${position.positionId}"
+										${position.positionId == department.positionId ? "selected=\"selected\"" : ""}>
+										${position.positionName}
+									</option>
 								</c:forEach>
 							</select>
 						</td>
@@ -238,7 +256,6 @@
 							<input type="text" id="basicPay" name="basicPay"
 							value="${employee.basicPay }">
 							(최소 기본급 
-							
 							<span id="minBasicPay" style="color: red; font-weight: bold;">
 								0
 							</span>
@@ -256,11 +273,10 @@
 						<td colspan="2" align="center">
 							<br><br>
 							
-							<button type="button" class="btn btn-primary" id="submitBtn"
+							<button type="button" id="submitBtn" class="btn btn-primary"
 							style="width: 40%;">직원 수정</button>
-							<button type="button" class="btn btn-primary" id="listBtn"
-							style="width: 40%;"
-							onclick="location.href='employeeupdateform.action'">직원 리스트</button>
+							<button type="button"  id="listBtn" class="btn btn-primary"
+							style="width: 40%;">직원 리스트</button>
 							<br><br>
 							
 							<span id="err" style="color: red; font-weight: bold; display: none;">

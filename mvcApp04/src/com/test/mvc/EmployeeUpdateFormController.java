@@ -33,7 +33,6 @@ public class EmployeeUpdateFormController implements Controller
 		this.positionDAO = positionDAO;
 	}
 	
-	
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
@@ -61,7 +60,9 @@ public class EmployeeUpdateFormController implements Controller
 			mav.addObject("departmentList", departmentList);
 			mav.addObject("positionList", positionList);
 			
-			mav.setViewName("/WEB-INF/view/EmployeeUpdateForm.jsp");
+			
+			/* mav.setViewName("/WEB-INF/view/EmployeeUpdateForm.jsp"); */
+			mav.setViewName("EmployeeUpdateForm");
 			
 		} catch (Exception e)
 		{
