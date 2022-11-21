@@ -29,6 +29,12 @@
 			$(location).attr("href", "employeeupdateform.action?employeeId=" + $(this).val());
 			
 		});
+		
+		$(".deleteBtn").click(function()
+		{
+			$(location).attr("href", "employeedelete.action?employeeId=" + $(this).val());			
+		});
+		
 	});
 	
 	
@@ -138,12 +144,14 @@
 					
 					<td>
 					<%-- value="${employee.employeeId} --%>
-					<button type="button" class="btn updateBtn" value="${employee.employeeId}">
+					<button type="button" class="btn btn-primary control updateBtn"
+					value="${employee.employeeId}">
 						수정
 					</button>
 					</td>
 					
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
+					<td><button type="button" class="btn btn-primary control deleteBtn"
+					value="${employee.employeeId}">삭제</button></td>
 				</tr>
 				</c:forEach>
 				

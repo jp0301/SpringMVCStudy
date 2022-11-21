@@ -366,6 +366,39 @@ public class EmployeeDAO implements IEmployeeDAO
 		
 		return result;
 	}
+	
+	@Override
+	public String searchSsn2(String employeeId, String ssn2) throws SQLException
+	{
+		
+		String result = "";
+		
+		
+		String sql = "SELECT CRYPTPACK.DECRYPT(SSN2, ?) AS SSN2"
+				   + " FROM EMPLOYEE"
+				   + " WHERE EMPLOYEEID = ?";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, ssn2);
+		pstmt.setInt(2, Integer.parseInt(employeeId));
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result = rs.getString("SSN2");
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+	
 
 	
 	

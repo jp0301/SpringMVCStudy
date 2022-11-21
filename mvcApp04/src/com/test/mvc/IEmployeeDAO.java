@@ -35,6 +35,7 @@ public interface IEmployeeDAO
 	public int modify(Employee employee) throws SQLException;
 	
 	public Employee searchId(String employeeId) throws SQLException;
+	public String searchSsn2(String employeeId, String ssn2) throws SQLException;
 
 	
 }

@@ -1,15 +1,3 @@
-/* ==============================================
- * #26. EmployeeUpdateController.java
- * - 사용자 정의 컨트롤러 클래스
- * - 직원 데이터 수정 액션 수행 및 해당 액션 처리 이후 
- *   『employeelist.action 을 요청할 수 있도록 안내』
- * - DAO 객체에 대한 의존성 주입(DI)을 위한 준비.
- *   → 인터페이스 자료형
- *   → setter 메소드 정의.
- * ==============================================
- */
-
-
 package com.test.mvc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class EmployeeUpdateController implements Controller
+public class EmployeeUpdateController_1 implements Controller
 {
 
 	private IEmployeeDAO dao;
@@ -63,9 +51,6 @@ public class EmployeeUpdateController implements Controller
 			employee.setPositionId(positionId);
 			employee.setBasicPay(Integer.parseInt(basicPay));
 			employee.setExtraPay(Integer.parseInt(extraPay));
-
-			
-			
 			
 			dao.modify(employee);
 			

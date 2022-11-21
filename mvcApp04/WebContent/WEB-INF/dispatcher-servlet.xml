@@ -176,6 +176,10 @@
 	<bean name="/ajax.action" class="com.test.mvc.AjaxController">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
+	<bean name="/ajax2.action" class="com.test.mvc.AjaxController2">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
 	
 	<!-- 직원 데이터 입력 액션 Controller 등록 -->
 	<bean name="/employeeinsert.action" class="com.test.mvc.EmployeeInsertController">
@@ -191,6 +195,8 @@
 		<property name="departmentDAO" ref="departmentDAO"></property>
 		<property name="positionDAO" ref="positionDAO"></property>
 	</bean>
+
+
 
 	<!-- 직원 데이터 수정 액션 Controller 등록 -->
 	<bean name="/employeeupdate.action" class="com.test.mvc.EmployeeUpdateController">
