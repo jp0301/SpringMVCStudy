@@ -43,7 +43,6 @@ public class AjaxController2 implements Controller
 			result = dao.searchSsn2(employeeId, ssn2);
 			
 
-			
 			mav.addObject("result", result);
 			/* mav.setViewName("WEB-INF/view/Ajax.jsp"); */
 			mav.setViewName("Ajax2");

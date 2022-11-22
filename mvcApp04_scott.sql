@@ -736,8 +736,9 @@ from employee;
 
 
 
-select CRYPTPACK.DECRYPT(ssn2, '1212123') as ssn2
-from employee;
+select CRYPTPACK.DECRYPT(ssn2, '1111') as ssn2
+from employee
+where employeeid = 6;
 
 
 

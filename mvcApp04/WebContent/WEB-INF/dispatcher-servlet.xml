@@ -171,6 +171,8 @@
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
 	
+
+	
 	
 	<!-- AJAX 관련 Controller 등록 -->
 	<bean name="/ajax.action" class="com.test.mvc.AjaxController">
@@ -203,7 +205,32 @@
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
 
+	<bean name="/employeedelete.action" class="com.test.mvc.EmployeeDeleteController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
 		
+
+
+
+
+	<!-- Login 폼 페이지 요청 Controller 등록 -->
+	<bean name="/loginform.action" class="com.test.mvc.LoginFormController">
+	</bean>
+	
+	<!-- Login 액션 Controller 등록 -->
+	<bean name="/login.action" class="com.test.mvc.LoginController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+
+	<!-- Logout 액션 Controller 등록 -->
+	<bean name="/logout.action" class="com.test.mvc.LogoutController">
+	
+	</bean>
+
+
+
+
+
 
 
 </beans>

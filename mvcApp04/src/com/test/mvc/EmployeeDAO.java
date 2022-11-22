@@ -371,8 +371,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	public String searchSsn2(String employeeId, String ssn2) throws SQLException
 	{
 		
-		String result = "";
-		
+		String test = "";
 		
 		String sql = "SELECT CRYPTPACK.DECRYPT(SSN2, ?) AS SSN2"
 				   + " FROM EMPLOYEE"
@@ -389,15 +388,110 @@ public class EmployeeDAO implements IEmployeeDAO
 		
 		while(rs.next())
 		{
-			result = rs.getString("SSN2");
+			test = rs.getString("SSN2");
 		}
 		
 		rs.close();
 		pstmt.close();
 		conn.close();
 		
+		return test;
+	}
+
+
+	
+	
+	// 일반 직원 로그인
+	@Override
+	public String login(String id, String pw) throws SQLException
+	{
+		String result = null;
+		
+		String sql = "SELECT NAME"
+				   + " FROM EMPLOYEE"
+				   + " WHERE EMPLOYEEID=?"
+				   + " AND SSN2=CRYPTPACK.ENCRYPT(?, ?)";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, Integer.parseInt(id));
+		pstmt.setString(2, pw);
+		pstmt.setString(3, pw);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result = rs.getString("NAME");
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		
 		return result;
 	}
+
+	@Override
+	public String loginAdmin(String id, String pw) throws SQLException
+	{
+		String result = null;
+		
+		String sql = "SELECT NAME"
+				   + " FROM EMPLOYEE"
+				   + " WHERE EMPLOYEEID = ?"
+				   + " AND SSN2 = CRYPTPACK.ENCRYPT(?, ?)"
+				   + " AND GRADE = 0";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, Integer.parseInt(id));
+		pstmt.setString(2, pw);
+		pstmt.setString(3, pw);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result = rs.getString("NAME");
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 	

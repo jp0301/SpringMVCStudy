@@ -26,29 +26,30 @@ String cp = request.getContextPath();
 	 - 로그아웃 기능(버튼) 추가 구성
      -------------------------------- -->
 
+<%-- <span>${sessionScope.admin == null ? "normal" : "admin"}</span> --%>
+
+
 	<div class="btn-group" role="group">
-		<a href="employeelist.action" role="button" class="menubtn btn btn-success btn-lg">직원 관리</a>
-		<a href="regionlist.action" role="button" class="menubtn btn btn-success btn-lg">지역 관리</a>
-		<a href="departmentlist.action" role="button" class="menubtn btn btn-success btn-lg">부서 관리</a>
-		<a href="positionlist.action" role="button" class="menubtn btn btn-success btn-lg">직위 관리</a>
-	
-		<a href="logout.action" role="button" class="menubtn btn btn-success btn-lg">로그 아웃</a>
+		<c:choose>
+			<c:when test="${sessionScope.admin == null }">
+				<a href="emplist.action" role="button" class="menubtn btn btn-success btn-lg">직원 정보</a>
+				<a href="regionlist.action" role="button" class="menubtn btn btn-success btn-lg">지역 정보</a>
+				<a href="departmentlist.action" role="button" class="menubtn btn btn-success btn-lg">부서 정보</a>
+				<a href="positionlist.action" role="button" class="menubtn btn btn-success btn-lg">직위 정보</a>
+				<a href="logout.action" role="button" class="menubtn btn btn-success btn-lg">로그 아웃</a>
+			</c:when>
+			
+			<c:otherwise>
+				<a href="employeelist.action" role="button" class="menubtn btn btn-success btn-lg">직원 관리</a>
+				<a href="regionlist.action" role="button" class="menubtn btn btn-success btn-lg">지역 관리</a>
+				<a href="departmentlist.action" role="button" class="menubtn btn btn-success btn-lg">부서 관리</a>
+				<a href="positionlist.action" role="button" class="menubtn btn btn-success btn-lg">직위 관리</a>
+				<a href="logout.action" role="button" class="menubtn btn btn-success btn-lg">로그 아웃</a>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	
 	
-	<!--
-	<div class="btn-group" role="group">
-		<a href="" role="button" class="btn btn-success btn-lg">직원 관리</a>
-		<a href="" role="button" class="btn btn-success btn-lg">지역 관리</a>
-		<a href="" role="button" class="btn btn-success btn-lg">부서 관리</a>
-		<a href="" role="button" class="btn btn-success btn-lg">직위 관리</a>
-	
-		<a href="" role="button" class="btn btn-success btn-lg">로그 아웃</a>
-	</div>
-	-->
-
-	
-
 
 
 </body>

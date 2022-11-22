@@ -35,7 +35,12 @@ public interface IEmployeeDAO
 	public int modify(Employee employee) throws SQLException;
 	
 	public Employee searchId(String employeeId) throws SQLException;
+
 	public String searchSsn2(String employeeId, String ssn2) throws SQLException;
 
+	// 로그인 관련 기능 추가
+	public String login(String id, String pw) throws SQLException; // 일반 직원 메소드
+	public String loginAdmin(String id, String pw) throws SQLException; // 관리자 로그인 메소드
+	
 	
 }

@@ -36,8 +36,6 @@ String cp = request.getContextPath();
 
 <script type="text/javascript">
 
-	var result = false;
-	
 	$(function()
 	{
 		// AJAX 요청 및 응답 처리
@@ -94,24 +92,10 @@ String cp = request.getContextPath();
 					}
 					
 					
-					result = ajaxRequest2();
+					ajaxRequest2();
 					
-					if(result)
-					{
-						alert("true");
-					}
-					else
-					{
-						alert("false");
-						$("#err").html("비밀번호가 다릅니다.");
-						$("#err").css("display", "inline");
-						return;
-					}
 
-					
-					// submit 액션 처리 수행
-					$("#employeeForm").submit();
-					
+
 					
 				});
 
@@ -156,20 +140,26 @@ String cp = request.getContextPath();
 
 	function ajaxRequest2()
 	{
-		$.ajaxSetup({async: false}); //동기식
 		$.post("ajax2.action", {
 			ssn2 : $("#ssn2").val(),
 			employeeId : $("#employeeId").val()
 		}, function(data)
 		{	
-			if($("#ssn2").val() == $.trim(data))
+			
+			//alert(data);
+			
+			if ($.trim(data) != $("#ssn2").val())
 			{
-				result = true;
+				$("#err").html("주민등록번호 뒷자리가 일치하지 않습니다");
+				$("#err").css("display", "inline");
+				$("#ssn2").val('');
+				return;	
 			}
-
+			else if ($.trim(data) == $("#ssn2").val())
+			{
+				$("#employeeForm").submit();
+			}
 		});
-		
-		return result;
 	};
 	
 </script>
