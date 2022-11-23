@@ -33,9 +33,9 @@ String cp = request.getContextPath();
 		<c:choose>
 			<c:when test="${sessionScope.admin == null }">
 				<a href="emplist.action" role="button" class="menubtn btn btn-success btn-lg">직원 정보</a>
-				<a href="regionlist.action" role="button" class="menubtn btn btn-success btn-lg">지역 정보</a>
-				<a href="departmentlist.action" role="button" class="menubtn btn btn-success btn-lg">부서 정보</a>
-				<a href="positionlist.action" role="button" class="menubtn btn btn-success btn-lg">직위 정보</a>
+				<a href="reglist.action" role="button" class="menubtn btn btn-success btn-lg">지역 정보</a>
+				<a href="deplist.action" role="button" class="menubtn btn btn-success btn-lg">부서 정보</a>
+				<a href="poslist.action" role="button" class="menubtn btn btn-success btn-lg">직위 정보</a>
 				<a href="logout.action" role="button" class="menubtn btn btn-success btn-lg">로그 아웃</a>
 			</c:when>
 			

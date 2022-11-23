@@ -43,4 +43,10 @@ public interface IEmployeeDAO
 	public String loginAdmin(String id, String pw) throws SQLException; // 관리자 로그인 메소드
 	
 	
+	// 일반 직원이 조회하는 직원 전체 리스트 출력 기능 추가~!!!
+	public ArrayList<Employee> empList() throws SQLException;
+	
+	
+	
+	
 }

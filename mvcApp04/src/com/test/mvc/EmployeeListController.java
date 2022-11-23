@@ -58,11 +58,6 @@ public class EmployeeListController implements Controller
 		// ----------------- 세션 처리 과정 추가(로그인에 대한 확인과정 추가)
 		
 		
-		
-		
-		
-		
-		
 		ArrayList<Employee> employeeList = new ArrayList<Employee>();
 		
 		try

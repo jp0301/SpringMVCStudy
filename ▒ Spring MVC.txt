@@ -383,7 +383,33 @@
    - #29. LoginForm.jsp
 
    - #30. LoginController.java
-   - #31. 
+   - #31. LogoutController.java
+   - #32. EmpListController.java
+   - #33. EmpList.jsp
+
+---------------------------------------------------------
+나머지 세션 처리해야될 곳
+
+일 = 일반 사용자 ,관 = 관리자
+
+AjaxController 일,관
+EmpListController 일
+EmployeeDeleteController 일,관
+EmployeeInsertController 일,관
+EmployeeInsertFormController 일,관
+EmployeeListController 일, 관
+EmployeeUpdateController 일, 관
+EmployeeUpdateFormController 일, 관
+---------------------------------------------------------
+
+
+   - #34. RegionListController.java
+   - #35. RegionList.jsp
+   - #36. RegionInsertFormController.java
+
+   - #37. RegionInsertForm.jsp
+   - #38. RegionAjaxController.java
+   - #39. RegionAjax.jsp
 
 
 

@@ -128,7 +128,36 @@ public class RegionDAO implements IRegionDAO
 		return result;
 	}
 	
-	
+	@Override
+	public String searchRegionName(String regionName) throws SQLException
+	{
+		String result = null;
+		
+		
+		Connection conn = dataSource.getConnection();
+		
+		String sql="SELECT REGIONNAME"
+				+ " FROM REGION"
+				+ " WHERE REGIONNAME = ?";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, regionName);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result = rs.getString("REGIONNAME");
+		}
+		
+		pstmt.close();
+		conn.close();
+		rs.close();
+		
+		return result;
+		
+	}
 	
 	
 }

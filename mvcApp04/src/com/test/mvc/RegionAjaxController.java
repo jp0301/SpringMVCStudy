@@ -10,6 +10,8 @@
 
 package com.test.mvc;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,11 +19,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class AjaxController2 implements Controller
+public class RegionAjaxController implements Controller
 {
-	private IEmployeeDAO dao;
+	private IRegionDAO dao;
 	
-	public void setDao(IEmployeeDAO dao)
+	public void setDao(IRegionDAO dao)
 	{
 		this.dao = dao;
 	}
@@ -49,7 +51,6 @@ public class AjaxController2 implements Controller
 			mav.setViewName("redirect:logout.action");
 			return mav;
 		}
-		
 		// ----------------- 세션 처리 과정 추가(로그인에 대한 확인과정 추가)
 		
 		
@@ -57,19 +58,20 @@ public class AjaxController2 implements Controller
 		
 		//이전 페이지(EmployeeInsertForm.jsp)로부터 데이터 수신
 		//-- positionId
-		String employeeId = request.getParameter("employeeId");
-		String ssn2 = request.getParameter("ssn2");
+		String regionName = request.getParameter("regionName");
+		
 		
 		String result = "";
 		
+		
 		try
 		{
-			result = dao.searchSsn2(employeeId, ssn2);
+			
+			result = dao.searchRegionName(regionName);
 			
 
 			mav.addObject("result", result);
-			/* mav.setViewName("WEB-INF/view/Ajax.jsp"); */
-			mav.setViewName("Ajax2");
+			mav.setViewName("RegionAjax");
 			
 		} catch (Exception e)
 		{

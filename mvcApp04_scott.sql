@@ -719,13 +719,25 @@ SELECT NAME FROM EMPLOYEE WHERE EMPLOYEEID = 1 AND SSN2 = CRYPTPACK.ENCRYPT('223
 ;
 
 
+
+-- 일반 직원의 리스트 조회 쿼리문 구성
+SELECT EMPLOYEEID, NAME, SSN, BIRTHDAY, LUNARNAME, TELEPHONE
+     , DEPARTMENTNAME, POSITIONNAME, REGIONNAME
+FROM EMPLOYEEVIEW
+ORDER BY EMPLOYEEID;
+--> 한 줄 구성
+SELECT EMPLOYEEID, NAME, SSN, BIRTHDAY, LUNARNAME, TELEPHONE, DEPARTMENTNAME, POSITIONNAME, REGIONNAME FROM EMPLOYEEVIEW ORDER BY EMPLOYEEID
+;
+
+
+
+
 ------------------------------------------------------------------------
 
 desc EMPLOYEEVIEW;
 desc departmentview;
 desc regionview;
 desc position;
-
 
 
 select ssn2
@@ -735,10 +747,12 @@ select CRYPTPACK.DECRYPT(ssn2, '1111') as ssn2
 from employee;
 
 
-
 select CRYPTPACK.DECRYPT(ssn2, '1111') as ssn2
 from employee
 where employeeid = 6;
 
 
+
+SELECT *
+FROM REGION;
 

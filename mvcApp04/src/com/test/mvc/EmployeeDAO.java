@@ -468,6 +468,46 @@ public class EmployeeDAO implements IEmployeeDAO
 		
 		return result;
 	}
+
+	@Override
+	public ArrayList<Employee> empList() throws SQLException
+	{
+		ArrayList<Employee> result = new ArrayList<Employee>();
+		
+		String sql ="SELECT EMPLOYEEID, NAME, SSN, BIRTHDAY, LUNARNAME"
+				   + ", TELEPHONE, DEPARTMENTNAME, POSITIONNAME, REGIONNAME"
+				   + " FROM EMPLOYEEVIEW"
+				   + " ORDER BY EMPLOYEEID";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			Employee emp = new Employee();
+			
+			emp.setEmployeeId(rs.getString("EMPLOYEEID"));
+			emp.setName(rs.getString("NAME"));
+			emp.setSsn1(rs.getString("SSN"));
+			emp.setBirthday(rs.getString("BIRTHDAY"));
+			emp.setLunarName(rs.getString("LUNARNAME"));
+			emp.setTelephone(rs.getString("TELEPHONE"));
+			emp.setDepartmentName(rs.getString("DEPARTMENTNAME"));
+			emp.setPositionName(rs.getString("POSITIONNAME"));
+			emp.setRegionName(rs.getString("REGIONNAME"));
+			
+			result.add(emp);
+		}
+		conn.close();
+		pstmt.close();
+		rs.close();
+		
+		
+		return result;
+	}
 	
 	
 	

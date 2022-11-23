@@ -1,14 +1,16 @@
-/* ======================================
- * #21. AjaxController.java
+/* =======================================
+ *  #34. RegionListController.java
  * - 사용자 정의 컨트롤러 클래스
- * - 직위에 따른 최소 기본급 반환 액션.
+ * - 지역 리스트 페이지 요청에 대한 액션 처리.
  * - DAO 객체에 대한 의존성 주입(DI)을 위한 준비.
  *   → 인터페이스 자료형 구성.
- *   → setter 메소드 정의.
- * ======================================
- */
+ *   → setter 메소드 구성.
+ * =======================================
+ * */
 
 package com.test.mvc;
+
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,19 +19,24 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class AjaxController2 implements Controller
+// ※ Spring 이 제공하는 『Controller』 인터페이스를 구현함으로써
+//    사용자 정의 컨트롤러 클래스를 구성한다.
+
+public class RegionListController implements Controller
 {
-	private IEmployeeDAO dao;
+	private IRegionDAO dao;
 	
-	public void setDao(IEmployeeDAO dao)
+	
+	public void setDao(IRegionDAO dao)
 	{
 		this.dao = dao;
 	}
 	
-
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+		// 컨트롤러 내부 액션 처리 코드
 		ModelAndView mav = new ModelAndView();
 		
 		
@@ -49,36 +56,28 @@ public class AjaxController2 implements Controller
 			mav.setViewName("redirect:logout.action");
 			return mav;
 		}
-		
 		// ----------------- 세션 처리 과정 추가(로그인에 대한 확인과정 추가)
+		// 이정도까지 왔으면 AOP으로 보조작업으로도 작업이 가능할 것이다.
 		
 		
-		
-		
-		//이전 페이지(EmployeeInsertForm.jsp)로부터 데이터 수신
-		//-- positionId
-		String employeeId = request.getParameter("employeeId");
-		String ssn2 = request.getParameter("ssn2");
-		
-		String result = "";
+		ArrayList<Region> regionList = new ArrayList<Region>();
 		
 		try
 		{
-			result = dao.searchSsn2(employeeId, ssn2);
+			regionList = dao.list();
 			
-
-			mav.addObject("result", result);
-			/* mav.setViewName("WEB-INF/view/Ajax.jsp"); */
-			mav.setViewName("Ajax2");
+			mav.addObject("regionList", regionList);
+			mav.setViewName("RegionList");
+			
 			
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());
 		}
 		
+
+		
 		
 		return mav;
 	}
-	
-	
 }

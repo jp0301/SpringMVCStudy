@@ -210,9 +210,6 @@
 	</bean>
 		
 
-
-
-
 	<!-- Login 폼 페이지 요청 Controller 등록 -->
 	<bean name="/loginform.action" class="com.test.mvc.LoginFormController">
 	</bean>
@@ -227,8 +224,26 @@
 	
 	</bean>
 
+	<!--  직원 리스트 Controller 동록(일반 회원) -->
+	<bean name="/emplist.action" class="com.test.mvc.EmpListController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
 
+	<!-- 지역 리스트 Controller 등록 -->
+	<bean name="/regionlist.action" class="com.test.mvc.RegionListController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
 
+	
+	<!-- 지역 데이터 입력 폼 Controller 등록 -->
+	<bean name="/regioninsertform.action" class="com.test.mvc.RegionInsertFormController">
+	
+	</bean>
+	
+	
+	<bean name="/regionajax.action" class="com.test.mvc.RegionAjaxController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
 
 
 

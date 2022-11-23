@@ -18,7 +18,7 @@ public interface IRegionDAO
 	public int modify(Region region) throws SQLException;					//-- 수정
 	
 	
-	
+	public String searchRegionName(String regionName) throws SQLException;
 	
 	
 }
