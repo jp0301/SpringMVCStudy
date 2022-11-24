@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RegionList.jsp</title>
+<title>DepartmentList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/main.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -27,36 +27,25 @@
 <script type="text/javascript">
 
 	$(function() {
-		
 		$(".btnUpdate").click(function() {
-			
-			//alert("테스트 업데이트버튼");
-			
-			$(location).attr("href", "regionupdateform.action?regionId=" + $(this).val());
+			$(location).attr("href", "departmentupdateform.action?departmentId=" + $(this).val());
 		});
 		
-	$(".btnDelete").click(function() {
-			//alert("테스트 업데이트버튼");
-			
-			$(location).attr("href", "regiondelete.action?regionId=" + $(this).val());
+		$(".btnDelete").click(function() {
+			$(location).attr("href", "departmentdelete.action?departmentId=" + $(this).val());
 		});
-		
-		
 		
 	});
-
-
-
 </script>
 
 </head>
 <body>
 
 	<!-- -----------------------------------------------------------------------------
-     #34. RegionList.jsp
-     - 지역 리스트 출력 페이지
-	 - 관리자가 접근하는 직원 리스트 출력 페이지
-	   (일반 직원이 접근하는 지역 리스트 출력 페이지는 RegList.jsp 로 구성할 예정)
+     #42. DepartmentList.jsp
+     - 부서 리스트 출력 페이지
+	 - 관리자가 접근하는 부서 리스트 출력 페이지
+	   (일반 직원이 접근하는 부서 리스트 출력 페이지는 DepList.jsp 로 구성할 예정)
      --------------------------------------------------------------------------------- -->
 	
 	<div>
@@ -65,45 +54,44 @@
 			<c:import url="EmployeeMenu.jsp"></c:import>
 		</div>
 		
-		<h1>[직원 관리] > [직원 리스트]</h1>
+		<h1>[부서 관리] > [부서 리스트]</h1>
 		<hr>
 		
 		<!-- 콘텐츠 영역 -->
 		<div id="content">
 			<div>
 				<form action="">
-					<input type="button" value="지역 추가" class="btn btn-primary"
-					onclick="location.href='regioninsertform.action'">
+					<input type="button" value="부서 추가" class="btn btn-primary"
+					onclick="location.href='departmentinsertform.action'">
 				</form>
 			</div>
 			<br><br>
 			
-			<!--  REGIONID REGIONNAME DELCHECK -->
 			<table id="customers" class="table">
 				<tr>
 					<th>번호</th>
-					<th style="width: 200px;">지역명</th>
+					<th style="width: 200px;">부서명</th>
 					<th>수정</th>
 					<th>삭제</th>
 				</tr>
 				
 				
 				
-				<c:forEach var="region" items="${regionList}">
+				<c:forEach var="department" items="${departmentList}">
 					<tr>
-						<td>${region.regionId}</td>
-						<td>${region.regionName}</td>
+						<td>${department.departmentId}</td>
+						<td>${department.departmentName}</td>
 						<td>
 							<button type="button" class="btn btn-primary btn-xs btnUpdate"
-							value="${region.regionId }">
+							value="${department.departmentId }">
 							수정
 							</button>
 						</td>
 						<td>
 							<button type="button"
-							value="${region.regionId}"
-							${region.delCheck == 0 ?  "class=\"btn btn-danger btnDelete btn-xs\"" : "class=\"btn btn-xs\"" }
-							${region.delCheck == 0 ?  "" : "disabled=\"disabled\"" }
+							value="${department.departmentId}"
+							${department.delCheck == 0 ?  "class=\"btn btn-danger btnDelete btn-xs\"" : "class=\"btn btn-xs\"" }
+							${department.delCheck == 0 ?  "" : "disabled=\"disabled\"" }
 							>
 							삭제
 							</button>
@@ -112,13 +100,7 @@
 				</c:forEach>
 			</table>
 					
-			
-			
-			
-			
 		</div>
-		
-		
 		
 		<!-- 회사 소개 및 어플리케이션 소개 영역-->
 		<div id="footer">
@@ -126,12 +108,6 @@
 		</div>
 		
 	</div>
-		
-		
-	
-	
-
-
 
 </body>
 </html>

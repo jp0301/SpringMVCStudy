@@ -198,13 +198,12 @@
 		<property name="positionDAO" ref="positionDAO"></property>
 	</bean>
 
-
-
 	<!-- 직원 데이터 수정 액션 Controller 등록 -->
 	<bean name="/employeeupdate.action" class="com.test.mvc.EmployeeUpdateController">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
-
+	
+	<!-- 직원 데이터 삭제 액션 Controller 등록 -->
 	<bean name="/employeedelete.action" class="com.test.mvc.EmployeeDeleteController">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
@@ -224,10 +223,13 @@
 	
 	</bean>
 
-	<!--  직원 리스트 Controller 동록(일반 회원) -->
+	<!--  직원 리스트 Controller 등록(일반 회원) -->
 	<bean name="/emplist.action" class="com.test.mvc.EmpListController">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
+
+
+
 
 	<!-- 지역 리스트 Controller 등록 -->
 	<bean name="/regionlist.action" class="com.test.mvc.RegionListController">
@@ -240,12 +242,124 @@
 	
 	</bean>
 	
-	
+	<!-- regionAJAX 관련 Controller 등록 -->
 	<bean name="/regionajax.action" class="com.test.mvc.RegionAjaxController">
 		<property name="dao" ref="regionDAO"></property>
 	</bean>
+	
+	<!--  지역 데이터 입력 액션 Controller 등록 -->
+	<bean name="/regioninsert.action" class="com.test.mvc.RegionInsertController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<!-- 지역 데이터 수정 폼 Controller 등록 -->
+	<bean name="/regionupdateform.action" class="com.test.mvc.RegionUpdateFormController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+
+	<!-- 지역 데이터 수정 액션 Controller 등록 -->
+	<bean name="/regionupdate.action" class="com.test.mvc.RegionUpdateController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<!-- 지역 데이터 삭제 액션 Controller 등록 -->
+	<bean name="/regiondelete.action" class="com.test.mvc.RegionDeleteController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
 
 
 
+	<!--  부서 리스트 Controller 등록 -->
+	<bean name="/departmentlist.action" class="com.test.mvc.DepartmentListController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<!--  부서 데이터 입력 폼 Controller 등록 -->
+	<bean name="/departmentinsertform.action" class="com.test.mvc.DepartmentInsertFormController">
+	</bean>
+
+	<!-- departmentAJAX 관련 Controller 등록 -->
+	<bean name="/departmentajax.action" class="com.test.mvc.DepartmentAjaxController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+
+	<!-- 부서 데이터 입력 액션 Controller 등록 -->
+	<bean name="/departmentinsert.action" class="com.test.mvc.DepartmentInsertController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<!-- 부서 데이터 수정 폼 Controller 등록 -->
+	<bean name="/departmentupdateform.action" class="com.test.mvc.DepartmentUpdateFormController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+
+	<!-- 부서 데이터 수정 액션 Controller 등록 -->
+	<bean name="/departmentupdate.action" class="com.test.mvc.DepartmentUpdateController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<!-- 부서 데이터 삭제 액션 Controller 등록 -->
+	<bean name="/departmentdelete.action" class="com.test.mvc.DepartmentDeleteController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	
+	
+	
+	
+	<!--  직위 리스트 Controller 등록 -->
+	<bean name="/positionlist.action" class="com.test.mvc.PositionListController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<!--  직위 데이터 입력 폼 Controller 등록 -->
+	<bean name="/positioninsertform.action" class="com.test.mvc.PositionInsertFormController">
+	</bean>
+	
+	<!-- positionAJAX 관련 Controller 등록 -->
+	<bean name="/positionajax.action" class="com.test.mvc.PositionAjaxController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<!-- 직위 데이터 입력 액션 Controller 등록 -->
+	<bean name="/positioninsert.action" class="com.test.mvc.PositionInsertController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<!-- 직위 데이터 수정 폼 Controller 등록 -->
+	<bean name="/positionupdateform.action" class="com.test.mvc.PositionUpdateFormController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+
+	<!-- 직위 데이터 수정 액션 Controller 등록 -->
+	<bean name="/positionupdate.action" class="com.test.mvc.PositionUpdateController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<!-- 직위 데이터 삭제 액션 Controller 등록 -->
+	<bean name="/positiondelete.action" class="com.test.mvc.PositionDeleteController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	
+	
+	<!--  지역 리스트 Controller 등록(일반 회원) -->
+	<bean name="/reglist.action" class="com.test.mvc.RegListController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<!--  부서 리스트 Controller 등록(일반 회원) -->
+	<bean name="/deplist.action" class="com.test.mvc.DepListController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	
+	<!--  직위 리스트 Controller 등록(일반 회원) -->
+	<bean name="/poslist.action" class="com.test.mvc.PosListController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	
 
 </beans>

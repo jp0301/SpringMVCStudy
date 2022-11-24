@@ -121,8 +121,8 @@ public class PositionDAO implements IPositionDAO
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setString(1, position.getPositionName());
-		pstmt.setInt(2, Integer.parseInt(position.getPositionId()));
-		pstmt.setInt(3, position.getMinBasicPay());
+		pstmt.setInt(2, position.getMinBasicPay());
+		pstmt.setInt(3, Integer.parseInt(position.getPositionId()));
 		
 		result = pstmt.executeUpdate();
 		
@@ -131,6 +131,74 @@ public class PositionDAO implements IPositionDAO
 		
 		return result;
 	}
+	
+	
+	@Override
+	public Position searchId(String positionId) throws SQLException
+	{
+		Position result = new Position();
+		
+		String sql = "SELECT POSITIONID, POSITIONNAME"
+				   + " FROM POSITION"
+				   + " WHERE POSITIONID = ?";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, Integer.parseInt(positionId));
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result.setPositionId(rs.getString("POSITIONID"));
+			result.setPositionName(rs.getString("POSITIONNAME"));
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+
+	@Override
+	public ArrayList<Position> posList() throws SQLException
+	{
+		ArrayList<Position> result = new ArrayList<Position>();
+		
+		
+		String sql ="SELECT POSITIONID, POSITIONNAME, MINBASICPAY, DELCHECK"
+				   + " FROM POSITIONVIEW"
+				   + " ORDER BY POSITIONID";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			Position pos = new Position();
+			
+			pos.setPositionId(rs.getString("POSITIONID"));
+			pos.setPositionName(rs.getString("POSITIONNAME"));
+			pos.setMinBasicPay(rs.getInt("MINBASICPAY"));
+			pos.setDelCheck(rs.getInt("DELCHECK"));
+
+			result.add(pos);
+		}
+		conn.close();
+		pstmt.close();
+		rs.close();
+		
+		return result;
+	}
+	
+	
+	
 
 	
 }

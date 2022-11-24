@@ -17,8 +17,10 @@ public interface IPositionDAO
 	public int remove(String positionId) throws SQLException;				//-- 삭제
 	public int modify(Position position) throws SQLException;				//-- 수정
 	
+	public ArrayList<Position> posList() throws SQLException;
 	
 	
 	
+	public Position searchId(String positionId) throws SQLException;
 	
 }

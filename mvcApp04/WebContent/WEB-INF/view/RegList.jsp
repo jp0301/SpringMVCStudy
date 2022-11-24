@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RegionList.jsp</title>
+<title>RegList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/main.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -24,39 +24,13 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-
-	$(function() {
-		
-		$(".btnUpdate").click(function() {
-			
-			//alert("테스트 업데이트버튼");
-			
-			$(location).attr("href", "regionupdateform.action?regionId=" + $(this).val());
-		});
-		
-	$(".btnDelete").click(function() {
-			//alert("테스트 업데이트버튼");
-			
-			$(location).attr("href", "regiondelete.action?regionId=" + $(this).val());
-		});
-		
-		
-		
-	});
-
-
-
-</script>
-
 </head>
 <body>
 
 	<!-- -----------------------------------------------------------------------------
-     #34. RegionList.jsp
+     #68. RegList.jsp
      - 지역 리스트 출력 페이지
-	 - 관리자가 접근하는 직원 리스트 출력 페이지
-	   (일반 직원이 접근하는 지역 리스트 출력 페이지는 RegList.jsp 로 구성할 예정)
+	 - 일반 직원이 접근하는 직원 리스트 출력 페이지
      --------------------------------------------------------------------------------- -->
 	
 	<div>
@@ -70,12 +44,7 @@
 		
 		<!-- 콘텐츠 영역 -->
 		<div id="content">
-			<div>
-				<form action="">
-					<input type="button" value="지역 추가" class="btn btn-primary"
-					onclick="location.href='regioninsertform.action'">
-				</form>
-			</div>
+
 			<br><br>
 			
 			<!--  REGIONID REGIONNAME DELCHECK -->
@@ -83,31 +52,15 @@
 				<tr>
 					<th>번호</th>
 					<th style="width: 200px;">지역명</th>
-					<th>수정</th>
-					<th>삭제</th>
+
 				</tr>
 				
 				
 				
-				<c:forEach var="region" items="${regionList}">
+				<c:forEach var="region" items="${reglist}">
 					<tr>
 						<td>${region.regionId}</td>
 						<td>${region.regionName}</td>
-						<td>
-							<button type="button" class="btn btn-primary btn-xs btnUpdate"
-							value="${region.regionId }">
-							수정
-							</button>
-						</td>
-						<td>
-							<button type="button"
-							value="${region.regionId}"
-							${region.delCheck == 0 ?  "class=\"btn btn-danger btnDelete btn-xs\"" : "class=\"btn btn-xs\"" }
-							${region.delCheck == 0 ?  "" : "disabled=\"disabled\"" }
-							>
-							삭제
-							</button>
-						</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -1,7 +1,7 @@
 /* ==================================================
- * #38. RegionAjaxController.java.java
+ * #49. DepartmentAjaxController.java.java
  * - 사용자 정의 컨트롤러 클래스
- * - 지역 리스트의 지역명 중복검사 결과 반환 액션.
+ * - 부서 리스트의 부서명 중복검사 결과 반환 액션.
  * - DAO 객체에 대한 의존성 주입(DI)을 위한 준비.
  *   → 인터페이스 자료형 구성.
  *   → setter 메소드 정의.
@@ -19,16 +19,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class RegionAjaxController implements Controller
+public class DepartmentAjaxController implements Controller
 {
-	private IRegionDAO dao;
+	private IDepartmentDAO dao;
 	
-	public void setDao(IRegionDAO dao)
+	public void setDao(IDepartmentDAO dao)
 	{
 		this.dao = dao;
 	}
 	
-
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
@@ -56,19 +55,19 @@ public class RegionAjaxController implements Controller
 		
 		//이전 페이지(EmployeeInsertForm.jsp)로부터 데이터 수신
 		//-- regionName
-		String regionName = request.getParameter("regionName");
-		ArrayList<Region> regionList = new ArrayList<Region>();
+		String departmentName = request.getParameter("departmentName");
+		ArrayList<Department> departmentList = new ArrayList<Department>();
 		
 		String str = "";
 		
 		try
 		{
-			regionList = dao.list();
+			departmentList = dao.list();
 			
 			
-			for(Region region : regionList)
+			for(Department department : departmentList)
 			{
-				if(region.getRegionName().equals(regionName))
+				if(department.getDepartmentName().equals(departmentName))
 				{
 					str = "이미 사용중인 이름이 존재합니다.";
 					break;
@@ -80,7 +79,7 @@ public class RegionAjaxController implements Controller
 			}
 
 			mav.addObject("result", str);
-			mav.setViewName("RegionAjax");
+			mav.setViewName("DepartmentAjax");
 			
 		} catch (Exception e)
 		{

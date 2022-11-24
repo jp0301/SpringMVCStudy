@@ -89,7 +89,7 @@ public class DepartmentDAO implements IDepartmentDAO
 		
 		String sql = "DELETE"
 				   + " FROM DEPARTMENT"
-				   + " WHERE DEPARTEMNTID = ?";
+				   + " WHERE DEPARTMENTID = ?";
 		
 		Connection conn = dataSource.getConnection();
 		
@@ -112,7 +112,7 @@ public class DepartmentDAO implements IDepartmentDAO
 		
 		String sql = "UPDATE DEPARTMENT"
 				   + " SET DEPARTMENTNAME = ?"
-				   + " WHERE DEPARTEMNTID = ?";
+				   + " WHERE DEPARTMENTID = ?";
 		
 		Connection conn = dataSource.getConnection();
 		
@@ -130,6 +130,78 @@ public class DepartmentDAO implements IDepartmentDAO
 		return result;
 	}
 
+	@Override
+	public Department searchId(String departmentId) throws SQLException
+	{
+		
+		Department result = new Department();
+		
+		
+		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME"
+				   + " FROM DEPARTMENT"
+				   + " WHERE DEPARTMENTID = ?";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, Integer.parseInt(departmentId));
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result.setDepartmentId(rs.getString("DEPARTMENTID"));
+			result.setDepartmentName(rs.getString("DEPARTMENTNAME"));
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+
+	@Override
+	public ArrayList<Department> depList() throws SQLException
+	{
+		ArrayList<Department> result = new ArrayList<Department>();
+		
+		
+		String sql ="SELECT DEPARTMENTID, DEPARTMENTNAME, DELCHECK"
+				   + " FROM DEPARTMENTVIEW"
+				   + " ORDER BY DEPARTMENTID";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			Department dep = new Department();
+			
+			dep.setDepartmentId(rs.getString("DEPARTMENTID"));
+			dep.setDepartmentName(rs.getString("DEPARTMENTNAME"));
+			dep.setDelCheck(rs.getInt("DELCHECK"));
+
+			result.add(dep);
+		}
+		conn.close();
+		pstmt.close();
+		rs.close();
+		
+		
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

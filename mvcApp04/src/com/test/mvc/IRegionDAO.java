@@ -17,8 +17,11 @@ public interface IRegionDAO
 	public int remove(String regionId) throws SQLException;					//-- 삭제
 	public int modify(Region region) throws SQLException;					//-- 수정
 	
+	public ArrayList<Region> regList() throws SQLException;
+	
+	
 	
 	public String searchRegionName(String regionName) throws SQLException;
-	
+	public Region searchId(String regionId) throws SQLException;
 	
 }

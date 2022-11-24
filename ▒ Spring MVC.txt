@@ -266,7 +266,6 @@
    http://localhost:8090/mvcApp02/memberlist.action
 
 
-
 -----------------------------------------------------------------------------------
 
 ■■■ Spring MVC 프로젝트 실습(mvcApp04) ■■■
@@ -349,49 +348,76 @@
    - #14. EmployeeList.jsp			→ 직원 정보 출력 뷰(view)페이지
    - #14-1. menuStyle.css			→ 메뉴 스타일 구성.
    - #14-2. mainStyle.css			→ 메인 스타일 구성.
-
    - #15. EmployeeListController.java		 
-
    - #16. web.xml				 
-
    - #17. dispatcher-servlet.xml		 
-
    - #18. applicationContext.xml		 
-
    - #19. EmployeeInsertFormController.java
    - #20. EmployeeInsertForm.jsp	
    - #21. AjaxController.java
    - #22. Ajax.jsp	
-
    - #23. EmployeeInsertController.java
-	
 ----------------------------------------------------
    - #24. EmployeeUpdateFormController_1.java
    - #25. EmployeeUpdateForm_1.jsp
    - #26. EmployeeUpdateController_1.java
 ----------------------------------------------------
-
    - #24. EmployeeUpdateFormController.java
    - #25. EmployeeUpdateForm.jsp
    - #26. EmployeeUpdateController.java
    - #27. EmployeeDeleteController.java
-   
-
-
-
    - #28. LoginFormController.java
    - #29. LoginForm.jsp
-
    - #30. LoginController.java
    - #31. LogoutController.java
    - #32. EmpListController.java
    - #33. EmpList.jsp
-
+---------------------------------------------------------
+   - #34. RegionListController.java
+   - #35. RegionList.jsp
+   - #36. RegionInsertFormController.java
+   - #37. RegionInsertForm.jsp
+   - #38. RegionAjaxController.java
+   - #39. RegionAjax.jsp
+   - #40. RegionInsertController.java
+   - #41. RegionUpdateFormController.java
+   - #42. RegionUpdateForm.jsp
+   - #43. RegionUpdateController.java
+   - #44. RegionDeleteController.java
+---------------------------------------------------------
+   - #45. DepartmentListController.java
+   - #46. DepartmentList.jsp
+   - #47. DepartmentInsertFormController.java
+   - #48. DepartmentInsertForm.jsp
+   - #49. DepartmentAjaxController.java
+   - #50. DepartmentAjax.jsp
+   - #51. DepartmentInsertController.java
+   - #52. DepartmentUpdateFormController.java
+   - #53. DepartmentUpdateForm.jsp
+   - #54. DepartmentUpdateController.java
+   - #55. DepartmentDeleteController.java
+---------------------------------------------------------
+   - #56. PositionListController.java
+   - #57. PositionList.jsp
+   - #58. PositionInsertFormController.java
+   - #59. PositionInsertForm.jsp
+   - #60. PositionAjaxController.java
+   - #61. PositionAjax.jsp
+   - #62. PositionInsertController.java
+   - #63. PositionUpdateFormController.java
+   - #64. PositionUpdateForm.jsp
+   - #65. PositionUpdateController.java
+   - #66. PositionDeleteController.java
+---------------------------------------------------------
+   - #67. RegListController.java
+   - #68. RegList.jsp
+   - #69. DepListController.java
+   - #70. DepList.jsp
+   - #71. PosListController.java
+   - #72. PosList.jsp
 ---------------------------------------------------------
 나머지 세션 처리해야될 곳
-
 일 = 일반 사용자 ,관 = 관리자
-
 AjaxController 일,관
 EmpListController 일
 EmployeeDeleteController 일,관
@@ -401,21 +427,6 @@ EmployeeListController 일, 관
 EmployeeUpdateController 일, 관
 EmployeeUpdateFormController 일, 관
 ---------------------------------------------------------
-
-
-   - #34. RegionListController.java
-   - #35. RegionList.jsp
-   - #36. RegionInsertFormController.java
-
-   - #37. RegionInsertForm.jsp
-   - #38. RegionAjaxController.java
-   - #39. RegionAjax.jsp
-
-
-
-
-
-
 ○ 사용자 최초 요청 주소
    http://localhost:8090/mvc04/employeelist.action
    http://localhost:8090/mvc04/emplist.action

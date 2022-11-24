@@ -743,16 +743,19 @@ desc position;
 select ssn2
 from employee;
 
-select CRYPTPACK.DECRYPT(ssn2, '1111') as ssn2
-from employee;
-
-
-select CRYPTPACK.DECRYPT(ssn2, '1111') as ssn2
+select name,CRYPTPACK.DECRYPT(ssn2, '2345678') as ssn2
 from employee
-where employeeid = 6;
+order by employeeId;
+
+
+
+
+select CRYPTPACK.DECRYPT(ssn2, '1212123') as ssn2
+from employee;
 
 
 
 SELECT *
-FROM REGION;
+FROM position
+order by positionId;
 

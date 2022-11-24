@@ -1,7 +1,7 @@
 /* ==================================================
- * #38. RegionAjaxController.java.java
+ * #60. PositionAjaxController.java.java
  * - 사용자 정의 컨트롤러 클래스
- * - 지역 리스트의 지역명 중복검사 결과 반환 액션.
+ * - 직위 리스트의 직위명 중복검사 결과 반환 액션.
  * - DAO 객체에 대한 의존성 주입(DI)을 위한 준비.
  *   → 인터페이스 자료형 구성.
  *   → setter 메소드 정의.
@@ -19,56 +19,48 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class RegionAjaxController implements Controller
+public class PositionAjaxController implements Controller
 {
-	private IRegionDAO dao;
+	private IPositionDAO dao;
 	
-	public void setDao(IRegionDAO dao)
+	public void setDao(IPositionDAO dao)
 	{
 		this.dao = dao;
 	}
 	
-
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		ModelAndView mav = new ModelAndView();
 		
 		
-		// 세션 처리과정추가(로그인에 대한 확인과정 추가
 		HttpSession session = request.getSession();
 		
-		if (session.getAttribute("name") == null) // 로그인 되어있지않은 상황
+		if (session.getAttribute("name") == null) 
 		{
-			// 로그인이 되어있지 않은 상황에서의 처리
-			//-- 로그인 폼 페이지를 다시 요청할 수 있도록 안내
 			mav.setViewName("redirect:loginform.action");
 			return mav;
 		}
-		else if(session.getAttribute("admin") == null) // 로그인은 되어있지만 관리자가 아닌 상황
+		else if(session.getAttribute("admin") == null) 
 		{
-			// 관리자가 아닌 상황 즉, 일반 사원일 때의 처리
 			mav.setViewName("redirect:logout.action");
 			return mav;
 		}
-		// ----------------- 세션 처리 과정 추가(로그인에 대한 확인과정 추가)
 		
+		String positionName = request.getParameter("positionName");
 		
-		//이전 페이지(EmployeeInsertForm.jsp)로부터 데이터 수신
-		//-- regionName
-		String regionName = request.getParameter("regionName");
-		ArrayList<Region> regionList = new ArrayList<Region>();
+		ArrayList<Position> positionList = new ArrayList<Position>();
 		
 		String str = "";
 		
 		try
 		{
-			regionList = dao.list();
+			positionList = dao.list();
 			
 			
-			for(Region region : regionList)
+			for(Position position : positionList)
 			{
-				if(region.getRegionName().equals(regionName))
+				if(position.getPositionName().equals(positionName))
 				{
 					str = "이미 사용중인 이름이 존재합니다.";
 					break;
@@ -80,7 +72,7 @@ public class RegionAjaxController implements Controller
 			}
 
 			mav.addObject("result", str);
-			mav.setViewName("RegionAjax");
+			mav.setViewName("PositionAjax");
 			
 		} catch (Exception e)
 		{

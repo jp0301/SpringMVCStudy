@@ -159,5 +159,74 @@ public class RegionDAO implements IRegionDAO
 		
 	}
 	
+
+	@Override
+	public Region searchId(String regionId) throws SQLException
+	{
+		Region result = new Region();
+		
+		String sql = "SELECT REGIONID, REGIONNAME"
+				   + " FROM REGION"
+				   + " WHERE REGIONID = ?";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, Integer.parseInt(regionId));
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result.setRegionId(rs.getString("REGIONID"));
+			result.setRegionName(rs.getString("REGIONNAME"));
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+
+	@Override
+	public ArrayList<Region> regList() throws SQLException
+	{
+		ArrayList<Region> result = new ArrayList<Region>();
+		
+		
+		String sql ="SELECT REGIONID, REGIONNAME, DELCHECK"
+				   + " FROM REGIONVIEW"
+				   + " ORDER BY REGIONID";
+		
+		Connection conn = dataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			Region reg = new Region();
+			
+			reg.setRegionId(rs.getString("REGIONID"));
+			reg.setRegionName(rs.getString("REGIONNAME"));
+			reg.setDelCheck(rs.getInt("DELCHECK"));
+
+			result.add(reg);
+		}
+		conn.close();
+		pstmt.close();
+		rs.close();
+		
+		
+		
+		return result;
+	}
+	
+	
+	
+	
 	
 }

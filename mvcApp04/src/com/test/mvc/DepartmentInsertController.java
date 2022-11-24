@@ -1,7 +1,8 @@
 /* ==================================================
- * #38. RegionAjaxController.java.java
+ * #51. RegionInsertController.java.java
  * - 사용자 정의 컨트롤러 클래스
- * - 지역 리스트의 지역명 중복검사 결과 반환 액션.
+ * - 지역 데이터 입력 액션 수행 및 해당 액션 수행 이후
+ * - regionlist.action을 다시 요청할 수 있도록 처리
  * - DAO 객체에 대한 의존성 주입(DI)을 위한 준비.
  *   → 인터페이스 자료형 구성.
  *   → setter 메소드 정의.
@@ -10,8 +11,6 @@
 
 package com.test.mvc;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,11 +18,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class RegionAjaxController implements Controller
+public class DepartmentInsertController implements Controller
 {
-	private IRegionDAO dao;
+	private IDepartmentDAO dao;
 	
-	public void setDao(IRegionDAO dao)
+	public void setDao(IDepartmentDAO dao)
 	{
 		this.dao = dao;
 	}
@@ -32,10 +31,9 @@ public class RegionAjaxController implements Controller
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+		
 		ModelAndView mav = new ModelAndView();
 		
-		
-		// 세션 처리과정추가(로그인에 대한 확인과정 추가
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("name") == null) // 로그인 되어있지않은 상황
@@ -51,36 +49,19 @@ public class RegionAjaxController implements Controller
 			mav.setViewName("redirect:logout.action");
 			return mav;
 		}
-		// ----------------- 세션 처리 과정 추가(로그인에 대한 확인과정 추가)
 		
 		
-		//이전 페이지(EmployeeInsertForm.jsp)로부터 데이터 수신
-		//-- regionName
-		String regionName = request.getParameter("regionName");
-		ArrayList<Region> regionList = new ArrayList<Region>();
-		
-		String str = "";
+		String departmentName = request.getParameter("departmentName");
 		
 		try
 		{
-			regionList = dao.list();
+			Department department = new Department();
 			
+			department.setDepartmentName(departmentName);
 			
-			for(Region region : regionList)
-			{
-				if(region.getRegionName().equals(regionName))
-				{
-					str = "이미 사용중인 이름이 존재합니다.";
-					break;
-				}
-				else
-				{
-					str="사용할 수 있는 이름입니다.";
-				}
-			}
-
-			mav.addObject("result", str);
-			mav.setViewName("RegionAjax");
+			dao.add(department);
+			
+			mav.setViewName("redirect:departmentlist.action");
 			
 		} catch (Exception e)
 		{
@@ -88,8 +69,10 @@ public class RegionAjaxController implements Controller
 		}
 		
 		
+		
 		return mav;
 	}
+
 	
 	
 }

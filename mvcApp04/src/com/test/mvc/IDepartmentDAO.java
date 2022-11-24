@@ -18,8 +18,10 @@ public interface IDepartmentDAO
 	public int remove(String departmentId) throws SQLException;				//-- 삭제
 	public int modify(Department department) throws SQLException;			//-- 수정
 	
+	public ArrayList<Department> depList() throws SQLException;
 	
 	
 	
+	public Department searchId(String departmentId) throws SQLException;
 	
 }
