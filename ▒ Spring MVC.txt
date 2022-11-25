@@ -431,5 +431,105 @@ EmployeeUpdateFormController 일, 관
    http://localhost:8090/mvc04/employeelist.action
    http://localhost:8090/mvc04/emplist.action
 
+------------------------------------------------------------------------------------------------------------------
+
+■■■ Spring MVC 프로젝트 실습(mvcApp05) ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   → STS 사용 시 Spring Project(또는 스프링 레거시 프로젝트)
+   : mvcApp05
+
+○ web.xml 파일 생성 / 라이브러리 등록
+   : 윈도우 탐색기 상에서
+     샘플 프로젝트(mvcApp00)의 src 와 WebContent 디렉터리
+     복사해서 현재 프로젝트에 덮어쓰기
+
+○ 실습 성격
+   : 성적 관리 프로그램(Spring MVC 버전)
+     JDBC 모듈 추가 실습
+     SimpleDriverDataSource 클래스(객체)활용
+
+○ 기능 구현
+   - 학생 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 성적 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 로그인 및 로그아웃 기능 구현
+     → 관리자 및 학생 로그인 구분하여 처리
+        ==> Spring MVC, JSP/Servlet, Oracle, HTML/CSS/Javascript
+            , AJAX, jQuery, EL, JSTL 표현 등 사용.
+
+○ 사전 작업
+   - 주요 테이블 생성 및 준비
+   ·MEMBERLIST		학생
+   ·MEMBERRECORD	성적
+
+○ 물리적 파일 구성
+   - #00. mvcApp05_scott.sql 
+
+
+
+ 더하고 싶으면 기능 더 추가해서 만들어봐라.
+ 대신 기본 기능은 빠져있으면 안된다.
+
+
+
+-----------------------------------------------------------------------------------
+
+■■■ Spring MVC 프로젝트 실습(mvcApp06) ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   → STS 사용 시 Spring Project(또는 스프링 레거시 프로젝트)
+   : mvcApp06
+
+○ web.xml 파일 생성 / 라이브러리 등록
+   : 윈도우 탐색기 상에서
+     샘플 프로젝트(mvcApp00)의 src 와 WebContent 디렉터리
+     복사해서 현재 프로젝트에 덮어쓰기
+
+○ 실습 성격
+   : 직원 관리 프로그램(Spring MVC 버전)
+     JDBC 모듈 추가 실습
+     SimpleDriverDataSource 클래스(객체)활용
+
+○ 기능 구현
+   - 직원 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 지역 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 부서 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 직위 데이터 입력, 출력, 수정, 삭제 기능 구현
+   - 로그인 및 로그아웃 기능 구현
+     → 관리자 및 일반직원 로그인 구분하여 처리
+        ==> Spring MVC, JSP/Servlet, Oracle, HTML/CSS/Javascript
+            , AJAX, jQuery, EL, JSTL 표현 등 사용.
+
+○ 사전 작업
+   - 주요 테이블 생성 및 준비
+   ·EMPLOYEE 		직원
+   ·REGION 		지역
+   ·DEPARTMENT 	부서
+   ·POSITION 		직위
+   - 주요 시퀀스 생성 및 활용
+   ·EMPLOYEESEQ
+   ·REGIONSEQ 	
+   ·DEPARTMENTSEQ 
+   ·POSITIONSEQ 
+   - 샘플 데이터 입력 및 활용	
+
+
+○ 물리적 파일 구성
+
+
+
+
+
+
+
+
+
+
 
 
