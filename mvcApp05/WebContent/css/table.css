@@ -1,0 +1,133 @@
+.table {
+	display: table;
+	width: 100%;
+	margin-top: -25px;
+	
+	border-bottom: 3px solid #162438;
+}
+
+
+.row {
+	display: table-row;
+	
+}
+
+
+.cell-title {
+	display: table-cell;
+	padding: 3px;
+	border-bottom: 1px solid #DDD;
+	width: 20%;
+	color:#fff;
+	background-color: #162438;
+	text-align: center;
+	font-size: 14px;
+}
+
+
+.cell {
+	display: table-cell;
+	padding: 3px;
+	border-bottom: 1px solid #DDD;
+	width: 16%;
+	text-align: center;
+	font-size: 14px;
+}
+
+.cell-Btn {
+	display: table-cell;
+	padding: 5px;
+	width: 10%;
+	border-bottom: 1px solid #DDD;
+	text-align: center;
+	font-size: 14px;
+	
+}
+.updateBtn
+{
+	width: 50px;
+	border: 0px;
+	border-radius: 6px;
+	background-color: #0FAA68;
+	color: #fff;
+	cursor: pointer;
+}
+.updateBtn:hover
+{
+	background-color: #074F30;
+	color: #fff;
+}
+
+
+.deleteBtn
+{
+	width: 50px;
+	border: 0px;
+	border-radius: 6px;
+	background-color: #E56C6C;
+	color: #fff;
+	cursor: pointer;
+}
+.deleteBtn:hover
+{
+	background-color: #753636;
+	color: #fff;
+	
+}
+
+
+.titleName
+{
+	color: black;
+	font-size: 20px;
+	text-align: center;
+	padding: 4px;
+	width: 250px;
+	margin-right: auto;
+	background-color: #fff;
+	border-left: 4px solid #00A2FF;
+}
+
+.insertBtn
+{
+	font-size: 14px;
+	width: 120px;
+	height: 35px;
+	color: #fff;
+	background-color: #00A2FF;
+	border: 0px;
+	border-radius: 6px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.insertBtn:hover
+{
+	color: #00A2FF;
+	background-color: #083047;
+	box-shadow: 0px 8px 6px -6px #666;
+	transition: all 0.5s;
+}
+
+.updateFormBtn
+{
+	font-size: 14px;
+	width: 100%;
+	height: 35px;
+	color: #fff;
+	background-color: #00A2FF;
+	border: 0px;
+	border-radius: 6px;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.updateFormBtn:hover
+{
+	color: #00A2FF;
+	background-color: #083047;
+	box-shadow: 0px 8px 6px -6px #666;
+	transition: all 0.5s;
+}
+

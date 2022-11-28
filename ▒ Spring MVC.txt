@@ -301,7 +301,7 @@
    - 주요 테이블 생성 및 준비
    ·EMPLOYEE 		직원
    ·REGION 		지역
-   ·DEPARTMENT 	부서
+   ·DEPARTMENT 		부서
    ·POSITION 		직위
    - 주요 시퀀스 생성 및 활용
    ·EMPLOYEESEQ
@@ -468,15 +468,53 @@ EmployeeUpdateFormController 일, 관
 ○ 물리적 파일 구성
    - #00. mvcApp05_scott.sql 
 
+   - #01. Member.java 
+   - #02. MemberRecord.java
+   - #03. IMemberDAO.java
+   - #04. IMemberRecordDAO.java
+   - #05. MemberDAO.java
+   - #06. MemberRecordDAO.java
+   - #07. MemberMenu.jsp
+   - #08. MemberList.jsp
+   - #09. MemberListController.java
+   - #09. web.xml
+   - #10. dispatcherContext.xml
+   - #11. applicationContext.xml
+   - #12. MemberInsertFormController.java
+   - #13. MemberInsertForm.jsp
+   - #14. MemberAjaxController.java	// 아이디 중복검사
+   - #15. MemberAjax.jsp		
+   - #16. MemberAjaxController2.java	// 이메일 중복검사, 기존 이메일 검사
+   - #17. MemberAjax2.jsp
+   - #18. MemberInsertController.java
+   - #19. MemberUpdateFormController.java 
+   - #20. MemberUpdateForm.jsp
+   - #21. MemberUpdateController.java
+   - #22. MemberDeleteController.java
+---------------------------------------------------
+   - #23. LoginFormController.java 
+   - #24. LoginForm.jsp
+   - #25. LoginController.java
+   - #26. LogoutController.java
+   - #27. MemListController.java
+   - #28. MemList.jsp
+---------------------------------------------------
+   - #25. MemberRecordListController.java
+   - #26. MemberRecordList.jsp
+   - #27. MemberRecordInsertFormController.java
+   - #28. MemberRecordInsertForm.jsp
+   - #29. MemberRecordAjaxController.java
+   - #30. MemberRecordAjax.jsp
+   - #31. MemberRecordInsertController.java
+   - #32. MemberRecordUpdateFormController.java
+   - #33. MemberRecordUpdateForm.jsp
+   - #34. MemberRecordUpdateController.java
+   - #35. MemberRecordDeleteController.java
 
-
- 더하고 싶으면 기능 더 추가해서 만들어봐라.
- 대신 기본 기능은 빠져있으면 안된다.
-
-
-
------------------------------------------------------------------------------------
-
+   - #36. MemRecListController.java
+   - #37. MemRecList.jsp
+---------------------------------------------------
+MemberRecordInsertForm
 ■■■ Spring MVC 프로젝트 실습(mvcApp06) ■■■
 
 ○ Perspective

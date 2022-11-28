@@ -10,12 +10,158 @@
 	<context:component-scan
 		base-package="org.springframework.samples.petclinic.web" />
 
-	<!-- ※ 『dispatcher-servlet.xml』의 기본 샘플 코드 -->
-	<!--    이 코드는 기본 설정에 대한 템플릿을 복사하기 위해 스프링 doc 를 참조하여 작성한다. -->
-	<!--    ① 『C:\s-f-3.0.2-with-docs\docs\spring-framework-reference』경로로 이동 -->
-	<!--    ② 『spring-framework-reference.pdf』 파일 실행 -->
-	<!--    ③ 본문 내용의 425 페이지(찾아서 직접 이동, 파일 페이지가 아니라 실제 기록된 페이지 파일페이지는 450/805) -->
-	<!--    ④ 페이지 하단의 XML 파일 샘플코드 복사 & 붙여넣기-->
 	
+	<!-- BeanNameUrlHandlerMapping -->
+	<bean id="beanNameUrlHandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="alwaysUseFullPath" value="true"></property>
+		<property name="order" value="1"></property>
+	</bean>
+	
+	
+	<!-- InternalResourceViewResolver -->
+	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- DataSource 등록 -->
+	<bean id="myDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@211.238.142.62:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+	
+	
+	
+	<!--  주말 SCOTT DB연결 안되므로 로컬 로 변경해서 테스트... -->
+	<bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="hr"></property>
+		<property name="password" value="lion"></property>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- DAO 등록 -->
+	<bean id="memberDAO" class="com.test.mvc.MemberDAO">
+		<property name="dataSource" ref="myDataSource"></property>
+	</bean>
+	
+	<bean id="memberRecordDAO" class="com.test.mvc.MemberRecordDAO">
+		<property name="dataSource" ref="myDataSource"></property>
+	</bean>
+	
+	
+	<!-- 관리자 접근 학생 리스트 Controller 등록 -->
+	<bean name="/memberlist.action" class="com.test.mvc.MemberListController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<!-- 학생 InsertFormController 등록-->
+	<bean name="/memberinsertform.action" class="com.test.mvc.MemberInsertFormController">
+	</bean>
+	
+	<!-- 학생 InsertController 등록-->
+	<bean name="/memberinsert.action" class="com.test.mvc.MemberInsertController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<!-- 학생 MemberAjaxController 등록-->
+	<bean name="/memberajax.action" class="com.test.mvc.MemberAjaxController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	<!-- 학생 MemberAjaxController2 등록-->
+	<bean name="/memberajax2.action" class="com.test.mvc.MemberAjaxController2">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<!-- 학생 UpdateFormController 등록-->
+	<bean name="/memberupdateform.action" class="com.test.mvc.MemberUpdateFormController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<!-- 학생 UpdateController 등록-->
+	<bean name="/memberupdate.action" class="com.test.mvc.MemberUpdateController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	<!-- 학생 DeleteController 등록-->
+	<bean name="/memberdelete.action" class="com.test.mvc.MemberDeleteController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+	
+	<!-- Login 폼 페이지 요청 Controller 등록 -->
+	<bean name="/loginform.action" class="com.test.mvc.LoginFormController">
+	</bean>
+	
+	<!-- Login 액션 Controller 등록 -->
+	<bean name="/login.action" class="com.test.mvc.LoginController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
 
+	<!-- Logout 액션 Controller 등록 -->
+	<bean name="/logout.action" class="com.test.mvc.LogoutController">
+	</bean>
+		
+	<!-- 학생 접근 학생 리스트 Controller 등록 -->
+	<bean name="/memlist.action" class="com.test.mvc.MemListController">
+		<property name="dao" ref="memberDAO"></property>
+	</bean>
+	
+		
+			
+			
+			
+			
+			
+	<!-- 관리자 접근 성적 정보 리스트 Controller 등록 -->
+	<bean name="/memberrecordlist.action" class="com.test.mvc.MemberRecordListController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
+	
+	<bean name="/memberrecordinsertform.action" class="com.test.mvc.MemberRecordInsertFormController">
+	</bean>
+	
+	
+	<!-- 성적 MemberRecordAjaxController 등록-->
+	<bean name="/memberrecordajax.action" class="com.test.mvc.MemberRecordAjaxController">
+		<property name="memberDAO" ref="memberDAO"></property>
+		<property name="memberRecordDAO" ref="memberRecordDAO"></property>
+	</bean>
+
+	<!-- 성적 입력 Controller 등록 -->
+	<bean name="/memberrecordinsert.action" class="com.test.mvc.MemberRecordInsertController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
+	
+		
+	<!-- 성적 UpdateFormController 등록-->
+	<bean name="/memberrecordupdateform.action" class="com.test.mvc.MemberRecordUpdateFormController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
+	
+	<!-- 성적 UpdateController 등록-->
+	<bean name="/memberrecordupdate.action" class="com.test.mvc.MemberRecordUpdateController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
+	
+	<!-- 성적 DeleteController 등록-->
+ 	<bean name="/memberrecorddelete.action" class="com.test.mvc.MemberRecordDeleteController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
+	
+	<!-- 학생 접근 성적 정보 리스트 Controller 등록 -->
+	<bean name="/memreclist.action" class="com.test.mvc.MemRecListController">
+		<property name="dao" ref="memberRecordDAO"></property>
+	</bean>
 </beans>

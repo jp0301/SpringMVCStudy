@@ -65,7 +65,7 @@
 		
 		$("#submitBtn").click(function()
 		{
-			if( $("#positionName").val() == "" || || $("#minBasicPay").val() == "")
+			if( $("#positionName").val() == "" || $("#minBasicPay").val() == "")
 			{
 				$("#err").html("입력 항목이 누락되었습니다.");
 				$("#err").css("display", "inline");
