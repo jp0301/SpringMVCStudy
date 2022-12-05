@@ -1,11 +1,16 @@
 package com.test.mybatis;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Response;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class StudentController
@@ -32,7 +37,7 @@ public class StudentController
 		model.addAttribute("count", dao.count());
 		model.addAttribute("list", dao.list());
 		
-		result = "WEB-INF/view/StudentList.jsp";
+		result = "/WEB-INF/view/StudentList.jsp";
 		
 		return result;
 	}
@@ -43,19 +48,66 @@ public class StudentController
 	{
 		String result = null;
 
-		result = "WEB-INF/view/StudentInsertForm.jsp";
+		result = "/WEB-INF/view/StudentInsertForm.jsp";
 		
 		return result;
 	}
 	
 	@RequestMapping(value="/studentinsert.action", method=RequestMethod.POST)
-	public String studentInsert(StudentDTO s)
+	public String studentInsert(StudentDTO student)
 	{
 		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
 		
-		dao.add(s);
+		dao.add(student);
 		
 		return "redirect:studentlist.action";
 	}
+	
+	@RequestMapping(value="/studentupdateform.action", method=RequestMethod.GET)
+	public String studentUpdateForm(HttpServletRequest request, Model model)
+	{
+		String result = null;
+		
+		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
+		
+		String sid = request.getParameter("sid");
+		
+		model.addAttribute("student", dao.search(sid));
+		
+		result = "/WEB-INF/view/StudentUpdateForm.jsp";
+		
+		return result;
+	}
+	
+	@RequestMapping(value="/studentupdate.action", method=RequestMethod.POST)
+	public String studentUpdate(StudentDTO student)
+	{
+		String result = null;
+		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
+		
+		dao.update(student);
+		
+		result = "redirect:studentlist.action";
+		
+		return result;
+	}
+	
+	
+	@RequestMapping(value="/studentdelete.action", method=RequestMethod.GET)
+	public String studentRemove(String sid)
+	{
+		String result = null;
+		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
+		
+		dao.remove(sid);
+		
+		result = "redirect:studentlist.action";
+		
+		return result;
+	}
+	
+	
+	
+	
 	
 }

@@ -8,7 +8,8 @@ public interface IStudentDAO
 	public int count();
 	public ArrayList<StudentDTO> list();
 	
-	public int remove(StudentDTO s);
+	public int remove(String sid);
 	public int update(StudentDTO s);
 	public StudentDTO search(String sid);
+
 }

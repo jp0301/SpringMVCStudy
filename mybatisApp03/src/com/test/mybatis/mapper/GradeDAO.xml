@@ -22,7 +22,7 @@
  		VALUES(#{sid}, #{sub1}, #{sub2}, #{sub3})
  	</insert>
  
- 	<delete id="delete">
+ 	<delete id="remove">
  		DELETE
  		FROM TBL_GRADE
  		WHERE SID=#{sid}
@@ -30,12 +30,12 @@
  	
  	<update id="update">
  		UPDATE TBL_GRADE
- 		SET NAME=#{name}, SUB1=#{sub1}, SUB2=#{sub2}, SUB3=#{sub3}  
+ 		SET SUB1=#{sub1}, SUB2=#{sub2}, SUB3=#{sub3}  
  		WHERE SID=#{sid}
  	</update>
  
- 	<select id="searchId" resultType="com.test.mybatis.GradeDTO">
- 		SELECT SID, SUB1, SUB2, SBU3
+ 	<select id="search" resultType="com.test.mybatis.GradeDTO">
+ 		SELECT SID, SUB1, SUB2, SUB3
  		FROM TBL_GRADE
  		WHERE SID=#{sid}
  	</select>

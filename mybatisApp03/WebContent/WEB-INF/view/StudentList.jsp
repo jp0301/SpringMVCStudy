@@ -45,7 +45,6 @@
 				<li>
 					<a href="gradelist.action">성적 관리</a>
 				</li>
-				
 			</ul>
 		</div>
 		
@@ -58,21 +57,33 @@
 	<div class="panel-group">
 		<div class="panel panel-default">
 			
+			<!-- div class="panel-heading row" -->
 			<div class="panel-heading">
-				<span style="font-size: 17pt; font-weight: bold;">
+				<span style="font-size: 17pt; font-weight: bold;"> <!-- class="col-md-3" -->
 					학생 리스트 출력
 				</span>
 				
+				<!-- <span class="col-md-9"> -->
 				<span>
 					<a href="studentinsertform.action" role="button"
 					class="btn btn-success btn-xs" id="btnAdd"
-					style="vertical-align: bottom;">학생 추가</a>
+					style="vertical-align: bottom;">
+						학생 추가
+					</a>
 				</span>
 			</div>
+			
+			
+			
+			
 			
 			<div class="panel-body">
 				전체 학생 수 <span class="badge">${count}</span>
 			</div>
+			
+			
+			
+			
 			
 			<div class="panel-body">
 				<table class="table table-hover table-striped">
@@ -87,63 +98,41 @@
 					</thead>
 					
 					<tbody>
-						<!-- 
-						<tr>
-							<td>1</td>
-							<td>이호석</td>
-							<td>010-1111-1111</td>
-							<td>0</td>
-							<td>
-								<button type="button" class="btn btn-success">수정</button>
-								<button type="button" class="btn btn-danger">삭제</button>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>한충희</td>
-							<td>010-2222-2222</td>
-							<td>1</td>
-							<td>
-								<button type="button" class="btn btn-success">수정</button>
-								<button type="button" class="btn btn-danger">삭제</button>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>임소민</td>
-							<td>010-3333-3333</td>
-							<td>1</td>
-							<td>
-								<button type="button" class="btn btn-success">수정</button>
-								<button type="button" class="btn btn-danger">삭제</button>
-							</td>
-						</tr>
-						-->
-						<c:forEach var="student" items="${list }">
-						<tr>
-							<td>${student.sid }</td>
-							<td>${student.name }</td>
-							<td>${student.tel }</td>
-							
-							<c:if test="${student.sub==0 }">
-							<td>X</td>
-							</c:if>
-							<c:if test="${student.sub==1 }">
-							<td>O</td>
-							</c:if>
-							
-							<td>
-								<button type="button" class="btn btn-success"
-								value="${student.sid }">수정</button>
-								<button type="button" class="btn btn-danger"
-								value="${student.sid }">삭제</button>
-							</td>
-							
-						</tr>
+						<c:forEach var="student" items="${list}">
+						
+							<tr>
+								<td>${student.sid }</td>
+								<td>${student.name }</td>
+								<td>${student.tel }</td>
+								
+								<c:if test="${student.sub==0 }">
+									<td>X</td>
+								</c:if>
+								<c:if test="${student.sub==1 }">
+									<td>O</td>
+								</c:if>
+								
+								<td>
+									<a href="studentupdateform.action?sid=${student.sid}">
+									<button type="button" class="btn btn-success" id="btnUpdate"
+									value="${student.sid}">
+									수정
+									</button>
+									</a>
+									
+									
+									<a href="studentdelete.action?sid=${student.sid}">
+									<button type="button" class="btn btn-danger" id="btnDelete"
+									value="${student.sid}">삭제</button>
+									</a>
+								</td>
+							</tr>
+						
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
+			
 			
 		</div>
 	</div>

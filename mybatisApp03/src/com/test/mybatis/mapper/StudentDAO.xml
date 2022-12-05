@@ -49,37 +49,30 @@
 	</select>
 	
 	
-	<!-- ★insert / update / delte 메소드는 별도로 resultType 지정하지 않는다★ -->
-	<select id="add">
+	<!-- ★insert / update / delete 메소드는 별도로 resultType 지정하지 않는다★ -->
+	<insert id="add">
 		INSERT INTO TBL_STUDENT(SID, NAME, TEL)
-		VALUES('${sid}', '${name}', '${tel}')
-		
-		<!--
- 		INSERT INTO TBL_STUDENT(SID, NAME, TEL)
- 		VALUES(#{sid}, #{name}, #{tel}) 
- 		-->
-		
-	</select>
+		VALUES(#{sid}, #{name}, #{tel})
+	</insert>
 	
 	
-	
-	<select id="delete">
+	<delete id="remove">
 		DELETE
 		FROM TBL_STUDENT
-		WHERE SID = #{sid}
-	</select>
+		WHERE SID=#{sid}
+	</delete>
 	
 	
 	
-	<select id="update">
+	<update id="update">
 		UPDATE TBL_STUDENT
 		SET NAME=#{name}, TEL=#{tel}
 		WHERE SID=#{sid}
-	</select>
+	</update>
 	
 	
 	
-	<select id="searchId" resultType="com.test.mybatis.StudentDTO">
+	<select id="search" resultType="com.test.mybatis.StudentDTO">
 		SELECT SID, NAME, TEL
 		FROM TBL_STUDENT
 		WHERE SID=#{sid}

@@ -22,6 +22,22 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+
+
+	$(function() {
+		$(".submitBtn").click(function() {
+			$(location).attr("href", "gradeupdateform.action?sid=" + $(this).val());
+		});
+		
+		
+	});
+
+
+
+</script>
+
+
 </head>
 <body>
 
@@ -102,10 +118,14 @@
 							<td>${grade.ch }</td>
 
 							<td>
-								<button type="button" class="btn btn-success"
+								<button type="button" class="btn btn-success submitBtn"
 								value="${grade.sid }">수정</button>
-								<button type="button" class="btn btn-danger"
-								value="${grade.sid }">삭제</button>
+								
+								
+								<a href="gradedelete.action?sid=${grade.sid}">
+									<button type="button" class="btn btn-danger"
+									value="${grade.sid }">삭제</button>
+								</a>
 							</td>
 							
 						</tr>

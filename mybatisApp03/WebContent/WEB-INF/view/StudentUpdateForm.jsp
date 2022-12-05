@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>StudentInsert.jsp</title>
+<title>StudentUpdateForm.jsp</title>
 
 <!-- jquery -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -40,10 +40,10 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li>
+				<li class="active">
 					<a href="studentlist.action">학생 관리 <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="active">
+				<li>
 					<a href="gradelist.action">성적 관리</a>
 				</li>
 				
@@ -62,16 +62,16 @@
 	<div class="panel-group">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span style="font-size: 17pt; font-weight: bold;" class="col-md-3">성적 데이터 입력</span>
+				<span style="font-size: 17pt; font-weight: bold;" class="col-md-3">학생 데이터 수정</span>
 				<span>
-				<a href="gradelist.action" role="button" class="btn btn-success btn-xs" id="btnAdd"
-				style="vertical-align: bottom;">성적 리스트 출력</a>
+				<a href="studentlist.action" role="button" class="btn btn-success btn-xs" id="btnAdd"
+				style="vertical-align: bottom;">학생 리스트 출력</a>
 				</span>
 			</div>
 			
 			<div class="panel-body">
 				
-				<form action="gradeinsert.action" method="post" id="myForm">
+				<form action="studentupdate.action?sid=${student.sid }" method="post" id="myForm">
 					<table class="table table-striped">
 						<tr>
 							<td>
@@ -81,7 +81,7 @@
 										<sup style="color:red;">※</sup>
 									</span>
 									<input type="text" id="sid" name="sid" class="form-control"
-									placeholder="sid" maxlength="30" required="required">
+									placeholder="sid" maxlength="30" disabled="disabled" value="${student.sid}">
 									<span class="input-group-addon"></span>
 								</div>
 							</td>
@@ -94,13 +94,13 @@
 							<td>
 								<div class="input-group" role="group">
 									<span class="input-group-addon" id="basic-addon2">
-										성적1
+										이름
 										<sup style="color:red;">※</sup>
 									</span>
-									<input type="text" id="sub1" name="sub1" class="form-control"
-									placeholder="sub1" maxlength="40" required="required">
+									<input type="text" id="name" name="name" class="form-control"
+									placeholder="name" maxlength="40" required="required" value="${student.name}">
 									<span class="input-group-addon">
-										0~100점 
+										30자 이내
 									</span>
 								</div>
 							</td>
@@ -113,29 +113,13 @@
 						<td>
 							<div class="input-group" role="group">
 								<span class="input-group-addon" id="basic-addon3">
-									성적2
+									전화번호
 									<sup style="color:red;">※</sup>
 								</span>
-								<input type="text" id="sub2" name="sub2" class="form-control"
-								placeholder="sub2" maxlength="40" required="required">
+								<input type="text" id="tel" name="tel" class="form-control"
+								placeholder="tel" maxlength="40" required="required" value="${student.tel}">
 								<span class="input-group-addon">
-									0~100점 
-								</span>
-							</div>
-							</td>
-						</tr>
-						
-						<tr>
-						<td>
-							<div class="input-group" role="group">
-								<span class="input-group-addon" id="basic-addon3">
-									성적3
-									<sup style="color:red;">※</sup>
-								</span>
-								<input type="text" id="sub3" name="sub3" class="form-control"
-								placeholder="sub3" maxlength="40" required="required">
-								<span class="input-group-addon">
-									0~100점 
+									40자 이내
 								</span>
 							</div>
 							</td>
@@ -146,7 +130,7 @@
 						
 						<tr>
 							<td colspan="2" style="text-align: center;">
-								<button type="submit" class="btn btn-success">등록</button>
+								<button type="submit" class="btn btn-success">수정</button>
 								<button type="reset" class="btn btn-default">취소</button>
 								<br>
 								

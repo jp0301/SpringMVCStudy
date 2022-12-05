@@ -72,40 +72,76 @@
 			<div class="panel-body">
 				
 				<form action="studentinsert.action" method="post" id="myForm">
-					<table border="1">
+					<table class="table table-striped">
 						<tr>
-							<th>번호(*)</th>
 							<td>
-								<input type="text" name="sid" id="sid" />
+								<div class="input-group" role="group">
+									<span class="input-group-addon" id="basic-addon1">
+										번호
+										<sup style="color:red;">※</sup>
+									</span>
+									<input type="text" id="sid" name="sid" class="form-control"
+									placeholder="sid" maxlength="30" required="required">
+									<span class="input-group-addon"></span>
+								</div>
 							</td>
 						</tr>
+						
+						<tr style="height: 10px;">
+						</tr>
+						
 						<tr>
-							<th>이름(*)</th>
 							<td>
-							<input type="text" name="name" id="name" 
-							maxlength="30" required="required"/>(30자 이내)
+								<div class="input-group" role="group">
+									<span class="input-group-addon" id="basic-addon2">
+										이름
+										<sup style="color:red;">※</sup>
+									</span>
+									<input type="text" id="name" name="name" class="form-control"
+									placeholder="name" maxlength="40" required="required">
+									<span class="input-group-addon">
+										30자 이내
+									</span>
+								</div>
 							</td>
 						</tr>
-						<tr>
-							<th>전화번호</th>
-							<td>
-							<input type="tel" name="tel" id="tel" 
-							maxlength="40" />(40자 이내)
-							</td>
+						
+						<tr style="height: 10px;">
 						</tr>
+						
 						<tr>
-							<td colspan="2">
-								<input type="submit" value="SUBMIT" 
-								class="btn btn-success btn-default" />
-								<span style="font-size: small;">
-									(*)는 필수입력 사항입니다.
+						<td>
+							<div class="input-group" role="group">
+								<span class="input-group-addon" id="basic-addon3">
+									전화번호
+									<sup style="color:red;">※</sup>
 								</span>
-								<span id="errMsg" 
-								style="font-size: small; color: red; display: none;">
-									필수 입력 사항을 모두 입력해야 합니다.
+								<input type="text" id="tel" name="tel" class="form-control"
+								placeholder="tel" maxlength="40" required="required">
+								<span class="input-group-addon">
+									40자 이내
+								</span>
+							</div>
+							</td>
+						</tr>
+						
+						<tr style="height: 10px;">
+						</tr>
+						
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<button type="submit" class="btn btn-success">등록</button>
+								<button type="reset" class="btn btn-default">취소</button>
+								<br>
+								
+								<span style="font-size: small;">(※)는 필수입력 사항입니다.</span>
+								<span style="font-size: small; color:red; display: none;" >
+									필수 입력 사항을 모두 입력해야합니다.
 								</span>
 							</td>
 						</tr>
+						
+						
 					</table>	
 
 				</form>			
