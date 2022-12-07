@@ -11,5 +11,6 @@ public interface IGradeDAO
 	public int remove(String sid);
 	public int update(GradeDTO g);
 	public GradeDTO search(String sid);
-	
+
+	public int ajaxcount(String sid);
 }
