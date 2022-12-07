@@ -12,4 +12,5 @@ public interface IStudentDAO
 	public int update(StudentDTO s);
 	public StudentDTO search(String sid);
 
+	public int ajaxcount(String sid);
 }

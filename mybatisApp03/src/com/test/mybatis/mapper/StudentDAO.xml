@@ -9,31 +9,6 @@
 <!-- 메소드명과 『id="식별자"』가 일치해야 한다. -->
 <mapper namespace="com.test.mybatis.IStudentDAO">
 	
-	<!-- ○ id="식별자" 속성 추가 -->
- 	<!--    - 인터페이스에 선언된 메소드의 이름과 일치해야 하며, -->
- 	<!--      호출 메소드명 역할을 수행하게 된다. -->
- 	<!-- ○ resultType="패키지경로가 포함된 자료형 클래스" -->
- 	<!--    - string : java.lang.String 
- 			- byte : java.lang.Byte
- 			- long : java.lang.long
- 			- short : java.lang.Short
- 			- int : java.lang.Integer
- 			- Integer : java.lang.Integer
- 			- double : java.lang.Double 
- 			- float : java.lang.Float
- 			- boolean : java.lang.Boolean
- 			- decimal : java.math.BigDecimal
- 			- object : java.lang.Object
- 			- map : java.util.Map
- 			- hashmap : java.util.HashMap
- 			- list : java.util.List
- 			- arraylist : java.util.ArrayList
- 			- collection : java.util.Collection 
- 			- iterator : java.util.Iterator 			-->
- 			
- 	<!-- ○ SELECT 쿼리 내부에 있는 컬럼명의 정보가 -->
- 	<!--    자료형 클래스(DTO) 멤버 변수(속성)와 일치하는 경우 -->
- 	<!-- 	자동 매핑이 이루어진다. -->
 	
 	
 	<select id="list" resultType="com.test.mybatis.StudentDTO">
@@ -48,8 +23,13 @@
 		FROM TBL_STUDENT
 	</select>
 	
+	<select id="ajaxcount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) AS COUNT
+ 		FROM TBL_STUDENT
+ 		WHERE SID=#{sid}
+ 	</select>
 	
-	<!-- ★insert / update / delete 메소드는 별도로 resultType 지정하지 않는다★ -->
+
 	<insert id="add">
 		INSERT INTO TBL_STUDENT(SID, NAME, TEL)
 		VALUES(#{sid}, #{name}, #{tel})

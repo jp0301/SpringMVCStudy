@@ -17,6 +17,12 @@
  		FROM TBL_GRADE
  	</select>
  	
+	<select id="ajaxcount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) AS COUNT
+ 		FROM TBL_GRADE
+ 		WHERE SID=#{sid}
+ 	</select>
+ 	
  	<insert id="add">
  		INSERT INTO TBL_GRADE(SID, SUB1, SUB2, SUB3)
  		VALUES(#{sid}, #{sub1}, #{sub2}, #{sub3})
